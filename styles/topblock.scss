@@ -1,0 +1,31 @@
+@use 'variables' as v;
+@import 'adaptive';
+
+#topBlock{
+    background: #F5F5F5;
+    padding: 160px 0;
+    color: v.$black;
+    .row{
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        .col{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+    #mainImage{
+        content: url('../utilities/mainImage.png');
+    }
+    @include _lg{
+        .row{
+            flex-direction: row;
+            gap: 32px;
+            align-items: center;
+            .col{
+                width: calc(50% - 16px);
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@use './variables' as v;
+.btn{
+    display: block;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 8px 20px;
+    background: v.$white;
+    border: 1.5px solid v.$white;
+    text-decoration: none;
+    cursor: pointer;
+    &.btn-outline{
+        background: none;
+        // border: 1.5px solid v.$white;
+        &:hover, &:focus, &.active{
+            background: v.$white;
+            color: v.$black;
+            font-weight: 600;
+        }
+    }
+}

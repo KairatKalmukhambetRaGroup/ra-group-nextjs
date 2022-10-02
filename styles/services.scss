@@ -1,0 +1,111 @@
+@use 'variables' as v;
+@import 'adaptive';
+
+#services{
+    padding: 96px 0;
+    background: v.$black;
+    color: v.$white;
+    .text-box{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 56px;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        .col{
+            box-sizing: border-box;
+            // width: 100%;
+            // width: calc((100% - 80px) / 3);
+            // flex: 1;
+            .card{
+                cursor: pointer;
+                box-sizing: border-box;
+                // height: 100%;
+                // max-height: 408px;
+                height: 408px;
+                aspect-ratio: 312 / 400;
+                width: 100%;
+                max-width: 312px;
+                border: v.$grey solid 1px;
+                padding: 32px;
+                border-radius: 12px;
+                .card-body{
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+                    align-items: center;
+                    justify-content: center;
+                    .card-img{
+                        .img{
+                            max-width: 100%;
+                            &.hover{
+                                display: none;
+                            }
+                        }
+                    }
+                    .text{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        .card-title{
+                            text-align: center;
+                            font-weight: 600;
+                            font-size: 24px;
+                            line-height: 32px;
+                            color: v.$white;
+                        }
+                        .card-text{
+                            text-align: center;
+                            display: none;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: v.$grey;
+                        }
+                    }
+                }
+                &:hover{
+                    padding: 0px 32px;
+                    background: v.$purple;
+                    .card-body{
+                        gap: 32px;
+                        .img{
+                            display: none;
+                            &.hover{
+                                display: block;
+                            }
+                        }
+                        .card-text{
+                            display: block;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    @include _lg {
+        padding: 128px 0;
+        .cards{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            .col{
+                box-sizing: border-box;
+                width: calc((100% - 80px) / 3);
+                flex: 1;
+                .card{
+                    height: 100%;
+                    max-height: 408px;
+                    height: 408px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

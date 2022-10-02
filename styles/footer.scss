@@ -1,0 +1,59 @@
+@use 'variables' as v;
+@import 'adaptive';
+
+#footer{
+    box-sizing: border-box;
+    background: v.$black;
+    border-top: #282828 solid 2px;
+    color: v.$white;
+    padding: 96px 0;
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        .footer-logo{
+            i{
+                content: url('../utilities/icons/logotype-header.svg');
+            }
+        }
+        .row{
+            display: flex;
+            flex-direction: column;
+            // align-items: flex-end;
+            gap: 48px;
+            .col{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                &>a{
+                    color: inherit;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 32px;
+                    &:hover{
+                        text-decoration:underline;
+                    }
+                }
+            }
+        }
+    }
+    @include _lg{
+        padding: 128px 0;
+        .footer-content{
+            .row{
+                flex-direction: row;
+                align-items: flex-end;
+                gap: 56px;
+                .col{
+                    width: calc(50% - 28px);
+                }
+            }
+        }
+    }
+}

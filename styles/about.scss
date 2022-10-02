@@ -1,0 +1,64 @@
+@use 'variables' as v;
+@import 'adaptive';
+
+#about{
+    padding: 96px 0;
+    background: #F5F5F5;
+    color: v.$black;
+    .title{
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 32px;
+        margin-bottom: 56px;
+    }
+    .content{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 48px;
+        #aboutImg{
+            box-sizing: border-box;
+            background: v.$grey;
+            border-radius: 16px;
+            padding: 16px;
+            margin: auto;
+            i{
+                max-width: 100%;
+                content: url('../utilities/icons/about-img.svg');
+            }
+        }
+        .text{
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .text-body{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                &>div:first-of-type{
+                    font-weight: 700;
+                    color: v.$purple;
+                }
+            }
+        }
+    }
+    @include _lg{
+        padding: 128px 0;
+        .content{
+            flex-direction: row;
+            gap: 64px;
+            #aboutImg{
+                margin: 0;
+                i{
+                    max-width: initial;
+                }
+            }
+            .text{
+                gap: 32px;
+            }
+        }
+    }
+}

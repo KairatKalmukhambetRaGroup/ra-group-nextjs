@@ -1,0 +1,55 @@
+@use 'variables' as v;
+@import 'adaptive';
+#vacancies{
+    padding: 96px 0;
+    background: v.$black;
+    color: v.$white;
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        .cols{
+            padding-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            .vacancy{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .jobs{
+                    color: #E7E7E7;
+                    display: flex;
+                    flex-direction: column;        
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+        }
+        .more{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            a{
+                text-decoration: none;
+                color: v.$purple;
+            }
+        }
+    }
+    @include _lg{
+        padding: 128px 0;
+        .content{
+            gap: 56px;
+            .cols{
+                height: 170px;
+                flex-wrap: wrap;
+                gap: 8px 56px;
+                .vacancy{
+                    width: calc(50% - 28px);
+                }
+            }
+        }
+    }
+}

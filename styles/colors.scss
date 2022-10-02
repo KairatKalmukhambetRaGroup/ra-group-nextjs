@@ -1,0 +1,7 @@
+@use './variables' as v;
+.color-black{
+    color: v.$black;
+}
+.color-purple{
+    color: v.$purple;
+}

@@ -1,0 +1,231 @@
+@use "variables" as v;
+@import 'adaptive';
+#header{
+    background: v.$black;
+    color: v.$white;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    .navbar{
+        padding: 20px 0;
+        .navbar-brand{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            i{
+                content: url('../utilities/icons/logotype-header.svg');
+            }
+        }
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .nav{
+            display: none;
+            flex-direction: row;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            align-items: center;
+            .nav-item{
+                cursor: pointer;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                .nav-link{
+                    text-decoration: none;
+                    color: v.$white;
+                }
+                &.active, &:hover{
+                    font-weight: 600;
+                    // padding-bottom: 4px;
+                    border-bottom: 1.5px solid v.$white;
+                }
+            }
+        }
+        .btns{
+            display: none;
+            flex-direction: row;
+            gap: 24px;
+            height: 100%;
+            .btn{
+                color: v.$white;
+                &:hover, &:focus, &.active{
+                    color: v.$black;
+                }
+            }
+            .dropdown{
+                // display: none;
+                position: relative;
+                .dropbtn{
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    // padding: 4px;
+                    border-bottom: 1.5px dashed v.$white;
+                }
+                .dropcontent{
+                    display: none;
+                    right: 0;
+                    margin: 0;
+                    margin-top: 20px;
+                    padding: 0;
+                    position: absolute;
+                    flex-direction: column;
+                    list-style: none;
+                    background: v.$white;
+                    border: 1px solid v.$grey;
+                    color: v.$black;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    li{
+                        cursor: pointer;
+                        padding: 8px;
+                        &:hover{
+                            background: v.$grey;
+                        }
+                    }
+                }
+                &.active{
+                    .dropcontent{
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        @include _lg{
+            .nav{
+                display: flex;
+            }
+            .btns{
+                display: flex;
+            }
+        }
+    }
+    .collapseBtn{
+        cursor: pointer;
+        @include _lg{
+            display: none;
+        }
+        i{content: url('../utilities/icons/MenuHambuger.svg');}
+        &.active{
+            i{content: url('../utilities/icons/closeMenu.svg');}
+        }
+    }
+    .collapseContent{
+        display: none;
+        &.active{
+            display: flex;
+        }
+        @include _lg{
+            display: none;
+        }
+        border-top: 1px #282828 solid;
+        padding-top: 16px;
+        box-sizing: border-box;
+        background: v.$black;
+        // position: fixed;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        gap: 16px;
+        .nav{
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            .nav-item{
+                cursor: pointer;
+                box-sizing: border-box;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                border-bottom: 1.5px solid #282828;
+                width: 100%;
+                .nav-link{
+                    display: block;
+                    padding: 16px 0;
+                    text-decoration: none;
+                    color: v.$white;
+                }
+                &:last-of-type{
+                    border-bottom: 1.5px solid v.$black;
+                }
+                &.active, &:hover{
+                    font-weight: 600;
+                    // padding-bottom: 4px;
+                    border-bottom: 1.5px solid v.$white;
+                }
+            }
+        }
+        .btns{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+            .btn{
+                display: inline-block;
+                // padding: 16px 0;
+                margin: 16px 0;
+                color: v.$white;
+                &:hover, &:focus, &.active{
+                    color: v.$black;
+                }
+            }
+            .dropdown{
+                display: block;
+                .dropbtn{
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    height: 100%;
+                    display: inline-block;
+                    align-items: center;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    // padding: 4px;
+                    border-bottom: 1.5px dashed v.$white;
+                }
+                .dropcontent{
+                    overflow: hidden;
+                    border-radius: 8px;
+                    display: none;
+                    left: 0;
+                    margin: 0;
+                    margin-top: 20px;
+                    padding: 0;
+                    flex-direction: column;
+                    list-style: none;
+                    background: v.$white;
+                    border: 1px solid v.$grey;
+                    color: v.$black;
+                    li{
+                        cursor: pointer;
+                        padding: 8px;
+                        &:hover{
+                            background: v.$grey;
+                        }
+                    }
+                }
+                &.active{
+                    .dropcontent{
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+
+}
