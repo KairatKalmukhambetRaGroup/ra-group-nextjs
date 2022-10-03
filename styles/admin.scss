@@ -1,0 +1,56 @@
+@use './variables' as v;
+@import './adaptive';
+
+#admin{
+    background: v.$grey;
+    min-height: 100vh;
+    table{
+        // width: 100%;
+        border-collapse: collapse;
+        padding: 16px;
+        border: 1px solid v.$grey;
+        border-radius: 8px;
+        background: v.$white;
+        overflow: hidden;
+        tr{
+            border: 1px solid v.$grey;
+            padding: 10px 0;
+            background: v.$white;
+            &:nth-child(even){
+                background: v.$grey;
+            }
+            th{
+                padding: 8px 16px;
+            }
+            td{
+                padding: 8px 16px;
+                .os-container{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    height: 100%;
+                    gap: 4px;
+                    .os{
+                        background: v.$purple;
+                        color: v.$white;
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                    }
+                }
+                a{
+                    text-decoration: underline;
+                    &:hover{
+                        color: v.$purple;
+                    }
+                }
+            }
+        }
+        thead{
+            tr{
+                background: v.$purple;
+                color: v.$white;
+            }
+        }
+    }
+}

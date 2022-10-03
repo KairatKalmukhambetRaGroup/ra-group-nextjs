@@ -14,6 +14,10 @@ import '../styles/services.scss';
 import '../styles/topblock.scss';
 import '../styles/vacancies.scss';
 
+// admin
+import '../styles/login.scss';
+import '../styles/admin.scss';
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

@@ -1,0 +1,59 @@
+@use './variables' as v;
+// @import './adaptive';
+
+#login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    background: v.$grey;
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px 32px;
+        border-radius: 16px;
+        border: v.$grey solid 1px;
+        box-sizing: border-box;
+        width: 500px;
+        background: v.$white;
+        text-align: center;
+        
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            .form-group{
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                label{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+                input{
+                    box-sizing: border-box;
+                    width: 100%;
+                    padding: 16px 24px;
+                    border-radius: 8px;
+                    border: 1px solid v.$grey;
+                    outline: none;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+        }
+        .btn{
+            background: v.$purple;
+            color: v.$white;
+            border-radius: 8px;
+            font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        }
+    }
+}

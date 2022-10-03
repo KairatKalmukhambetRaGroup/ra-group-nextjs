@@ -22,11 +22,10 @@ export default async (req, res) => {
             return res.json(applications);
         } catch (error) {
             console.log(error);
-            return res.this.status(500).json();
+            return res.status(500).json();
         }
         // return res.json({message: "ok"})
     }else{
-        console.log(error);
-        return res.status(500).json();
+        return res.status(403).json();
     }
 }
