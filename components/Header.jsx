@@ -31,7 +31,7 @@ const Header = () => {
         <header id="header" >
             <div className="container">
                 <div className="navbar">
-                    <a href="/" className="navbar-brand">
+                    <a href="" className="navbar-brand">
                         <i></i>
                     </a>
                     <div className={`collapseBtn ${showMenu ? 'active' : ''}`} onClick={toggleMenu}>

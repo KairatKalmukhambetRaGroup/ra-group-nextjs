@@ -16,7 +16,8 @@
         }
     }
     #mainImage{
-        content: url('../utilities/mainImage.png');
+        // content: url('../utilities/mainImage.png');
+        content: url('../utilities/topBlock.svg');
     }
     @include _lg{
         .row{
