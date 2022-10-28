@@ -1,10 +1,13 @@
 import axios from "axios";
+import decode from 'jwt-decode';
+import Router from "next/router";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 
 export default function Admin() {
     const [applications, setApplications] = useState([]);
+    const [profile, setProfile] = useState(null);
     
     useEffect(()=>{
         async function fetchData() {
@@ -16,6 +19,29 @@ export default function Admin() {
         }
         fetchData();
     }, [applications]);
+
+    useEffect(() => {
+        if(profile && profile.user && profile.token){
+            const token = profile.token;
+            if (token) {
+                const decodedToken = decode(token);
+          
+                if (decodedToken.exp * 1000 <= new Date().getTime()){
+                    localStorage.removeItem('profile');  
+                }
+            }
+        }else{
+            if (typeof window !== "undefined") {
+                const user = JSON.parse(localStorage.getItem('profile'));
+                if(user)
+                    setProfile(user);
+                else
+                    Router.push('/admin/login');
+            }else{
+                Router.push('/admin/login');
+            }
+        }
+    },)
     return (
         <div id="admin">
             <Head>
