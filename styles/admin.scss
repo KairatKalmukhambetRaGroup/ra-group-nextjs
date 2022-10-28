@@ -1,29 +1,48 @@
 @use './variables' as v;
 @import './adaptive';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 #admin{
+    *{
+        font-family: 'Inter', sans-serif;
+    }
+    padding: 0 80px;
+    box-sizing: border-box;
+    
     background: v.$grey;
     min-height: 100vh;
+    .content{
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
     table{
         // width: 100%;
         border-collapse: collapse;
         padding: 16px;
         border: 1px solid v.$grey;
-        border-radius: 8px;
+        border-radius: 12px;
         background: v.$white;
         overflow: hidden;
         tr{
-            border: 1px solid v.$grey;
-            padding: 10px 0;
+            // padding: 10px 0;
             background: v.$white;
-            &:nth-child(even){
-                background: v.$grey;
-            }
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
             th{
-                padding: 8px 16px;
+                padding: 16px 6px 20px;
+                text-align: left;
+                color: #5E646F;
+                font-weight: 400;
             }
             td{
-                padding: 8px 16px;
+                color: #0E0E0E;
+                padding: 10px 6px;
+                &.number{
+                    color: #5E646F;
+                }
                 .os-container{
                     display: flex;
                     flex-direction: row;
@@ -48,8 +67,7 @@
         }
         thead{
             tr{
-                background: v.$purple;
-                color: v.$white;
+                border-bottom: 1px solid #F2F4F5;
             }
         }
     }
