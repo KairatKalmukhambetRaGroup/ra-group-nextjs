@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FormattedMessage } from "react-intl";
 
 import ProjectIrex from '../utilities/project-imgs/irex.png';
 import ProjectIrexLogo from '../utilities/project-imgs/irex-logo.png';
@@ -8,8 +8,8 @@ import ProjectFLogo from '../utilities/project-imgs/f-logo.png';
 import ProjectRagMirsot from '../utilities/project-imgs/rag-mirsot.png';
 import ProjectRagMirsotLogo from '../utilities/project-imgs/rag-mirsot-logo.png';
 import ProjectGen2 from '../utilities/project-imgs/gen2.png';
-import { getLang } from "../utilities/lang";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const cards = [
     {
@@ -49,23 +49,15 @@ const cards = [
     },
 ];
 
-const dictionary = {
-    title: {ru: 'Проекты', kz: 'Жобалар', en: 'Projects'},
-    subtitle: {
-        ru: 'Наши проекты, которые мы проанализировали и реализовали на сегодняшний день.\nНаша команда в каждом проекте использует все необходимые, возможные и креативные способы и источники для реализации качественных продуктов.', 
-        kz: 'Біздің бүгінгі күнге дейін талдап, іске асырған жобаларымыз.\nБіздің команда әр жобада сапалы өнімдерді енгізу үшін барлық қажетті, мүмкін және шығармашылық жолдар мен көздерді пайдаланады.', 
-        en: 'Our projects that we have analyzed and implemented to date.\nOur team in each project uses all the necessary, possible and creative ways and sources to implement quality products.'
-    }
-}
 
-const Projects = ({lang}) => {
-    // const lang = getLang();
+const Projects = () => {
+    const {locale} = useRouter();
     return (
         <div id="projects" className="block">
             <div className="container">
                 <div className="text">
-                    <div className="semibold-28-32">{dictionary.title[lang]}</div>
-                    <div className="regular-16-24">{dictionary.subtitle[lang]}</div>
+                    <div className="semibold-28-32"><FormattedMessage id="projects.title" /></div>
+                    <div className="regular-16-24"><FormattedMessage id="projects.subtitle" /></div>
                 </div>
             </div>
             
@@ -84,7 +76,7 @@ const Projects = ({lang}) => {
                                         </div>
                                     ) : card.title}
                                 </div>
-                                <div className="card-text">{card.text[lang]}</div>
+                                <div className="card-text">{card.text[locale]}</div>
                             </div>
                         </div>
                     </a>

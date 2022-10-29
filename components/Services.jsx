@@ -1,12 +1,13 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 import MobileImg from '../utilities/icons/services-mobile.svg';
 import MobileImgHover from '../utilities/icons/services-mobile-hover.svg';
 import AllPlatformsImg from '../utilities/icons/services-all.svg';
 import CRMImg from '../utilities/icons/services-crm.svg';
 import CRMImgHover from '../utilities/icons/services-crm-hover.svg';
-import { getLang } from "../utilities/lang";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const cards = [
     {
@@ -29,23 +30,15 @@ const cards = [
     },
 ];
 
-const dictionary = {
-    title: {ru: 'Услуги', kz: 'Қызметтер', en: 'Services'},
-    subtitle: {
-        ru: 'Мы предоставляем различные виды IT услуг, но сначала мы проведем бриф и изучим с командой сферу деятельности. Мы выделим основных конкурентов и целевую аудиторию вашего продукта.', 
-        kz: 'Біз IT-қызметтердің әртүрлі түрлерін көрсетеміз, бірақ алдымен қысқаша ақпарат жүргізіп, топпен қызмет саласын зерттейміз. Біз сіздің өніміңіздің негізгі бәсекелестерін және мақсатты аудиториясын бөліп көрсетеміз.', 
-        en: 'We provide various types of IT services, but first we will conduct a brief and study the field of activity with the team. We will highlight the main competitors and the target audience of your product.'
-    },
-}
 
-const Services = ({lang}) => {
-    // const lang = getLang();
+const Services = () => {
+    const {locale} = useRouter();
     return (
         <div id="services" className="block">
             <div className="container">
                 <div className="text-box">
-                    <div className="semibold-28-32">{dictionary.title[lang]}</div>
-                    <div className="regular-16-24">{dictionary.subtitle[lang]}</div>
+                    <div className="semibold-28-32"><FormattedMessage id="services.title" /></div>
+                    <div className="regular-16-24"><FormattedMessage id="services.subtitle" /></div>
                 </div>
                 <div className="cards">
                     {cards && cards.map((card, key)=>(
@@ -61,8 +54,8 @@ const Services = ({lang}) => {
                                         </div>
                                     </div>
                                     <div className="text">
-                                        <div className="card-title">{card.title[lang]}</div>
-                                        <div className="card-text">{card.text[lang]}</div>
+                                        <div className="card-title">{card.title[locale]}</div>
+                                        <div className="card-text">{card.text[locale]}</div>
                                     </div>
                                 </div>
                             </div>

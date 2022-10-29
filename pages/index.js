@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <html lang="en" style={{scrollBehavior:'smooth'}} />
+        {/* <html lang="en" style={{scrollBehavior:'smooth'}} /> */}
         <title>RA Group</title>
         <meta name='description' content='Digital solutions for your business'/>
       </Head>

@@ -1,12 +1,12 @@
 import React from "react";
-
+import { FormattedMessage } from "react-intl";
 
 import RagMirsot from '../utilities/partners/rag-mirsot.svg';
 import Irex from '../utilities/partners/irex.png';
 import RagZakyatInvestment from '../utilities/partners/rag-zakyat-investment.svg';
 import F from '../utilities/partners/f.png';
-// import { getLang } from "../utilities/lang";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const cards = [
     {
@@ -73,14 +73,14 @@ const dictionary = {
     }
 }
 
-const Partners = ({lang}) => {
-    // const lang = getLang();
+const Partners = () => {
+    const {locale} = useRouter();
     return (
         <div id="partners" className="block">
             <div className="container">
                 <div className="text">
-                    <div className="semibold-28-32">{dictionary.title[lang]}</div>
-                    <div className="regular-16-24">{dictionary.subtitle[lang]}</div>
+                    <div className="semibold-28-32"><FormattedMessage id="partners.title" /></div>
+                    <div className="regular-16-24"><FormattedMessage id="partners.subtitle" /></div>
                 </div>
 
                 <div className="cards">
@@ -95,7 +95,7 @@ const Partners = ({lang}) => {
                             <div className="card-overlay" style={{background: card.bg, color: card.color}}>
                                 <div className="card-body">
                                     <div className="card-title">{card.name}</div>
-                                    <div className="card-text">{card.text[lang]}</div>
+                                    <div className="card-text">{card.text[locale]}</div>
                                 </div>
                             </div>
                         </div>

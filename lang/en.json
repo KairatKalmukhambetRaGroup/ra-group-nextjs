@@ -1,0 +1,35 @@
+{
+    "header.services": "Services",
+    "header.about": "About",
+    "header.projects": "Projects",
+    "header.partners": "Partners",
+    "header.application.btn": "Leave an application",
+    
+    "top.title": "Digital solutions for your business",
+    "top.subtitle": "We develop digital products and services that help businesses grow and expand.",
+
+    "services.title": "Services",
+    "services.subtitle": "We provide various types of IT services, but first we will conduct a brief and study the field of activity with the team. We will highlight the main competitors and the target audience of your product.",
+
+    "about.title": "About Us",
+    "about.heading": "RA Group Ltd.\nis engaged in research and development in the IT field",
+    "about.subheading": "Member of the International Financial Center Astana and Astana HUB",
+    "about.text": "We develop products in the field of information systems; simplify and automate work processes; reduce risks and losses in the business of our clients;",
+
+    "projects.title": "Projects",
+    "projects.subtitle": "Our projects that we have analyzed and implemented to date.\nOur team in each project uses all the necessary, possible and creative ways and sources to implement quality products.",
+
+    "partners.title": "Partners",
+    "partners.subtitle": "List of our partners with whom we have completed projects",
+
+    "application.title": "",
+
+    "vacancies.title": "Job vacancies",
+    "vacancies.subtitle": "Who are we looking for?",
+    "vacancies.notfound": "Didn't find a suitable vacancy?\nWrite about yourself and send your CV to",
+    "vacancies.notfound.more": ".",
+    
+    "footer.user.agreement": "User Agreement",
+    "footer.generalterms": "General terms and conditions",
+    "footer.location" : "Kazakhstan, Nur-Sultan city, Yesil district, Mangilik El Avenue, building 55/22, blocks C4.3, office 140, postal code Z05T3F5"
+}

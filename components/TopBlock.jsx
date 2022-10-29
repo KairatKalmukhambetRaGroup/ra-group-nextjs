@@ -1,33 +1,19 @@
-// import Image from "next/image";
 import React from "react";
-import { getLang } from "../utilities/lang";
+import { FormattedMessage } from "react-intl";
 
-// import MainImg from '../utilities/mainImage.png';
 
-const dictionary = {
-    title: {ru: 'Цифровые решения для вашего бизнеса', kz: 'Сіздің бизнесіңіз үшін сандық шешімдер', en: 'Digital solutions for your business'},
-    subtitle: {
-        ru: 'Мы разрабатываем цифровые продукты и услуги, которые помогают предприятиям расти и расширяться.', 
-        kz: 'Біз бизнестің өсуіне және кеңеюіне көмектесетін цифрлық өнімдер мен қызметтерді әзірлейміз.', 
-        en: 'We develop digital products and services that help businesses grow and expand.'
-    },
-}
-
-const TopBlock = ({lang}) =>{
-    // const lang = 'en';
-    // const lang = getLang();
+const TopBlock = () =>{
     return (
         <div id="topBlock" className="block">
             <div id="bg"></div>
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <div className="bold-32-40 bold-56-72-lg">{dictionary.title[lang]}</div>
-                        <div className="regular-16-24">{dictionary.subtitle[lang]}</div>
+                        <div className="bold-32-40 bold-56-72-lg"><FormattedMessage id="top.title" /></div>
+                        <div className="regular-16-24"><FormattedMessage id="top.subtitle" /></div>
                     </div>
                     <div className="col">
-                        {/* <i id="mainImage"></i> */}
-                        {/* <Image src={MainImg} /> */}
+
                         <div id="svgs">
                             <svg id="svg1" width="544" height="360" viewBox="0 0 544 360" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect id="svg1r1" x="0.75" y="0.75" width="542.5" height="358.5" rx="11.25" fill="#645DD1" fillOpacity="0.1" stroke="#3F3D56" strokeWidth="1.5"/>

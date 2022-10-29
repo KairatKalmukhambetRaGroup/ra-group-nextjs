@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Router from "next/router";
-// import { getLang, setLang } from "../utilities/lang";
+import Router, { useRouter } from "next/router";
+import Link from "next/link";
+import { FormattedMessage } from "react-intl";
 
 const dictionary = {
     services: {ru: 'Услуги',kz: 'Қызметтер',en: 'Services'},
@@ -11,8 +12,8 @@ const dictionary = {
     language: {ru: 'RU',kz: 'KZ',en: 'EN'}
 }
 
-const Header = ({lang}) => {
-    // const lang = getLang();
+const Header = () => {
+    const {locale} = useRouter();
     const [showLangs, setShowLangs] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const handleLangChange = (e) =>{
@@ -44,26 +45,30 @@ const Header = ({lang}) => {
                     </div>
                     <ul className="nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="#services">{dictionary.services[lang]}</a>
+                            {/* <a className="nav-link" href="#services">{dictionary.services[lang]}</a> */}
+                            <a className="nav-link" href="#services"><FormattedMessage id="header.services" /></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#about">{dictionary.about[lang]}</a>
+                            <a className="nav-link" href="#about"><FormattedMessage id="header.about" /></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#projects">{dictionary.projects[lang]}</a>
+                            <a className="nav-link" href="#projects"><FormattedMessage id="header.projects" /></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#partners">{dictionary.partners[lang]}</a>
+                            <a className="nav-link" href="#partners"><FormattedMessage id="header.partners" /></a>
                         </li>
                     </ul>
                     <div className="btns">
-                        <a className="btn btn-outline" href="#application">{dictionary.applicationBtn[lang]}</a>
+                        <a className="btn btn-outline" href="#application"><FormattedMessage id="header.application.btn" /></a>
                         <div className={`dropdown ${showLangs ? 'active': ''}`}>
-                            <a className="dropbtn" onClick={(e)=>{e.preventDefault(); setShowLangs(!showLangs)}}>{dictionary.language[lang]}</a>
+                            <a className="dropbtn" onClick={(e)=>{e.preventDefault(); setShowLangs(!showLangs)}}>{dictionary.language[locale]}</a>
                             <ul className="dropcontent">
-                                {lang !== 'ru' && (<li data-lang="ru" onClick={handleLangChange}>{dictionary.language.ru}</li>)}
+                                {/* {lang !== 'ru' && (<li data-lang="ru" onClick={handleLangChange}>{dictionary.language.ru}</li>)}
                                 {lang !== 'en' && (<li data-lang="en" onClick={handleLangChange}>{dictionary.language.en}</li>)}
-                                {lang !== 'kz' && (<li data-lang="kz" onClick={handleLangChange}>{dictionary.language.kz}</li>)}
+                                {lang !== 'kz' && (<li data-lang="kz" onClick={handleLangChange}>{dictionary.language.kz}</li>)} */}
+                                {locale !== 'ru' && (<li><Link href="/" locale="ru">RU</Link></li>)}
+                                {locale !== 'en' && (<li><Link href="/" locale="en">EN</Link></li>)}
+                                {locale !== 'kz' && (<li><Link href="/" locale="kz">KZ</Link></li>)}
                             </ul>
                         </div>
                     </div>
@@ -73,26 +78,26 @@ const Header = ({lang}) => {
                 <div className="container">
                     <ul className="nav">
                         <li className="nav-item">
-                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#services">{dictionary.services[lang]}</a>
+                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#services"><FormattedMessage id="header.services" /></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#about">{dictionary.about[lang]}</a>
+                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#about"><FormattedMessage id="header.about" /></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#projects">{dictionary.projects[lang]}</a>
+                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#projects"><FormattedMessage id="header.projects" /></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#partners">{dictionary.partners[lang]}</a>
+                            <a className="nav-link" onClick={(e)=>{setShowMenu(false)}} href="#partners"><FormattedMessage id="header.partners" /></a>
                         </li>
                     </ul>
                     <div className="btns">
-                        <a className="btn btn-outline" onClick={(e)=>{setShowMenu(false)}} href="#application">{dictionary.applicationBtn[lang]}</a>
+                        <a className="btn btn-outline" onClick={(e)=>{setShowMenu(false)}} href="#application"><FormattedMessage id="header.application.btn" /></a>
                         <div className={`dropdown ${showLangs ? 'active': ''}`}>
-                            <a className="dropbtn" onClick={(e)=>{e.preventDefault(); setShowLangs(!showLangs)}}>{dictionary.language[lang]}</a>
+                            <a className="dropbtn" onClick={(e)=>{e.preventDefault(); setShowLangs(!showLangs)}}>{dictionary.language[locale]}</a>
                             <ul className="dropcontent">
-                                {lang !== 'ru' && (<li data-lang="ru" onClick={handleLangChange}>{dictionary.language.ru}</li>)}
-                                {lang !== 'en' && (<li data-lang="en" onClick={handleLangChange}>{dictionary.language.en}</li>)}
-                                {lang !== 'kz' && (<li data-lang="kz" onClick={handleLangChange}>{dictionary.language.kz}</li>)}
+                                {locale !== 'ru' && (<li><Link href="/" locale="ru">RU</Link></li>)}
+                                {locale !== 'en' && (<li><Link href="/" locale="en">EN</Link></li>)}
+                                {locale !== 'kz' && (<li><Link href="/" locale="kz">KZ</Link></li>)}
                             </ul>
                         </div>
                     </div>

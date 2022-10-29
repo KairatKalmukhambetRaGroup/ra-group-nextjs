@@ -1,3 +1,10 @@
+import { useRouter } from 'next/router';
+import { IntlProvider } from "react-intl";
+
+import en from '../lang/en.json';
+import ru from '../lang/ru.json';
+import kz from '../lang/kz.json';
+
 import '../styles/globals.scss';
 import '../styles/colors.scss';
 import '../styles/flexbox.scss';
@@ -18,8 +25,27 @@ import '../styles/vacancies.scss';
 import '../styles/login.scss';
 import '../styles/admin.scss';
 
+
+
+
+const messages = {en, ru, kz};
+
+function getDirection(locale) {
+  if (locale === "ar") {
+    return "rtl";
+  }
+
+  return "ltr";
+}
+
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const {locale} = useRouter();
+
+  return (
+    <IntlProvider locale={locale} messages={messages[locale]}>
+      <Component {...pageProps} dir={getDirection(locale)} />
+    </IntlProvider>
+  )
 }
 
 export default MyApp;

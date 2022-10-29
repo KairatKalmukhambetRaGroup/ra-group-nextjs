@@ -6,8 +6,8 @@ import MobileIcon from '../utilities/icons/iphone-icon.svg';
 import LaptopIcon from '../utilities/icons/laptop-icon.svg';
 import CRMIcon from '../utilities/icons/crm-icon.svg';
 import MoreVerticalIcon from '../utilities/icons/more-vertical-icon.svg';
-import { getLang } from "../utilities/lang";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const initialState = {format: null, os: [], firstname: '', lastname: '', companyName: '', email: ''};
 const initErrState = {format: '', os: '', firstname: '', lastname: '', companyName: '', email: ''}
@@ -63,8 +63,8 @@ const dictionary = {
 
 // const API = axios.create({baseURL: 'http://localhost:3000/api/applications', validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"} });
 
-const Application = ({lang}) => {
-    // const lang = getLang();
+const Application = () => {
+    const {locale} = useRouter();
 
     const [formData, setFormData] = useState(initialState);
     const [currentStep, setCurrentStep] = useState(1);
@@ -117,8 +117,8 @@ const Application = ({lang}) => {
             setSubmitionResult(null);
             setCurrentStep(4);
             try {
-                // const data = await API.post('/', {...formData, lang});
-                const data = await axios.post('/api/applications', {...formData, lang}, {validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}});
+                // const data = await API.post('/', {...formData, locale});
+                const data = await axios.post('/api/applications', {...formData, locale}, {validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}});
                 if(data.status >= 200 && data.status < 300)
                     setSubmitionResult('success');
                 else
@@ -141,14 +141,14 @@ const Application = ({lang}) => {
         <div id="application" >
             <div className="container">
                 <div className="text">
-                    <div className="bold-40-48">{dictionary.title[lang]}</div>
+                    <div className="bold-40-48">{dictionary.title[locale]}</div>
                     <div id="progress-bar">
                         <div className={`progress ${currentStep<3 ? `progress-${currentStep}` : ''}`}></div>
                     </div>
                     {currentStep<4 && (
                         <div className="text">
-                            <div className="semibold-24-32">{dictionary.step[lang]} {currentStep}/3</div>
-                            <div className="regular-16-24">{dictionary.groupLabels[currentStep][lang]}</div>
+                            <div className="semibold-24-32">{dictionary.step[locale]} {currentStep}/3</div>
+                            <div className="regular-16-24">{dictionary.groupLabels[currentStep][locale]}</div>
                         </div>
                     )}
                 </div>
@@ -164,8 +164,8 @@ const Application = ({lang}) => {
                                         </div>
                                     </div>
                                     <div className="text">
-                                        <div className="semibold-24-32">{dictionary.outsourceTitle[lang]}</div>
-                                        <div className="regular-16-24">{dictionary.outsourceText[lang]}</div>
+                                        <div className="semibold-24-32">{dictionary.outsourceTitle[locale]}</div>
+                                        <div className="regular-16-24">{dictionary.outsourceText[locale]}</div>
                                     </div>
                                 </div>
                             </label>
@@ -179,14 +179,14 @@ const Application = ({lang}) => {
                                         </div>
                                     </div>
                                     <div className="text">
-                                        <div className="semibold-24-32">{dictionary.productionTitle[lang]}</div>
-                                        <div className="regular-16-24">{dictionary.productionText[lang]}</div>
+                                        <div className="semibold-24-32">{dictionary.productionTitle[locale]}</div>
+                                        <div className="regular-16-24">{dictionary.productionText[locale]}</div>
                                     </div>
                                 </div>
                             </label>
                         </div>
                         <div className="btns">
-                            <button type="button" className="btn" disabled={!formData.format} onClick={(e)=>{e.preventDefault(); setCurrentStep(2)}}>{dictionary.nextBtn[lang]}</button>
+                            <button type="button" className="btn" disabled={!formData.format} onClick={(e)=>{e.preventDefault(); setCurrentStep(2)}}>{dictionary.nextBtn[locale]}</button>
                         </div>
                     </div>
                     <div className={`form-group ${currentStep===2 ? 'active' : ''}`}>
@@ -201,38 +201,38 @@ const Application = ({lang}) => {
                                                    <Image src={os.img}/>
                                                 </div>
                                             </div>
-                                            <div className="semibold-16-24">{os.text[lang]}</div>
+                                            <div className="semibold-16-24">{os.text[locale]}</div>
                                         </div>
                                     </div>
                                 </label>
                             ))}
                         </div>
                         <div className="btns">
-                            <button type="button" className="btn" disabled={formData.os.length===0} onClick={(e)=>{e.preventDefault(); setCurrentStep(3)}}>{dictionary.nextBtn[lang]}</button>
+                            <button type="button" className="btn" disabled={formData.os.length===0} onClick={(e)=>{e.preventDefault(); setCurrentStep(3)}}>{dictionary.nextBtn[locale]}</button>
                         </div>
                     </div>
                     <div className={`form-group ${currentStep===3 ? 'active' : ''}`}>
                         <div className="input-row">
                             <div className="col">
-                                <label className={`${formData.firstname ? '' : 'placeholder'}`} htmlFor="input_firstname">{dictionary.firstnameLabel[lang]}</label>
+                                <label className={`${formData.firstname ? '' : 'placeholder'}`} htmlFor="input_firstname">{dictionary.firstnameLabel[locale]}</label>
                                 <input type="text" name="firstname" id="input_firstname" value={formData.firstname} onChange={handleChange} />
                             </div>
                             <div className="col">
-                                <label className={`${formData.lastname ? '' : 'placeholder'}`} htmlFor="input_lastname">{dictionary.lastnameLabel[lang]}</label>
+                                <label className={`${formData.lastname ? '' : 'placeholder'}`} htmlFor="input_lastname">{dictionary.lastnameLabel[locale]}</label>
                                 <input type="text" name="lastname" id="input_lastname" value={formData.lastname} onChange={handleChange} />
                             </div>
                             <div className="col">
-                                <label className={`${formData.companyName ? '' : 'placeholder'}`} htmlFor="input_company">{dictionary.companyNameLabel[lang]}</label>
+                                <label className={`${formData.companyName ? '' : 'placeholder'}`} htmlFor="input_company">{dictionary.companyNameLabel[locale]}</label>
                                 <input type="text" name="companyName" id="input_company" value={formData.companyName} onChange={handleChange} />
                             </div>
                             <div className="col">
-                                <label className={`${formData.email ? '' : 'placeholder'} ${errors.email ? 'error' : ''}`} htmlFor="input_email">{dictionary.emailLabel[lang]}{!formData.email && ' (example@gmail.com)'}</label>
+                                <label className={`${formData.email ? '' : 'placeholder'} ${errors.email ? 'error' : ''}`} htmlFor="input_email">{dictionary.emailLabel[locale]}{!formData.email && ' (example@gmail.com)'}</label>
                                 <input type="text" name="email" id="input_email" value={formData.email} onChange={handleChange} />
                                 <div className="error">{errors.email}</div>
                             </div>
                         </div>
                         <div className="btns">
-                            <button type="submit" className="btn" disabled={!readyToSend}>{dictionary.sendBtn[lang]}</button>
+                            <button type="submit" className="btn" disabled={!readyToSend}>{dictionary.sendBtn[locale]}</button>
                         </div>
                     </div>
                     <div className={`form-group ${currentStep===4 ? 'active' : ''}`}>
@@ -244,16 +244,16 @@ const Application = ({lang}) => {
                                     </div>
                                     {submitionResult === 'success' ? (
                                         <div className="text-center">
-                                            <div className="semibold-16-24">{dictionary.successTitle[lang]}</div>
-                                            <div className="regular-16-24">{dictionary.successText[lang]}</div>
+                                            <div className="semibold-16-24">{dictionary.successTitle[locale]}</div>
+                                            <div className="regular-16-24">{dictionary.successText[locale]}</div>
                                         </div>
                                     ) : (                                    
-                                        <div className="semibold-16-24">{dictionary.failTitle[lang]}</div>
+                                        <div className="semibold-16-24">{dictionary.failTitle[locale]}</div>
                                     )}
                                 </div>
                                 <div className="btns">
                                     <button type="button" className="btn" onClick={clear}>
-                                        {submitionResult === 'success' ? dictionary.successBtn[lang] : dictionary.failBtn[lang]}
+                                        {submitionResult === 'success' ? dictionary.successBtn[locale] : dictionary.failBtn[locale]}
                                     </button>
                                 </div>
                             </>
