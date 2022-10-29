@@ -54,10 +54,10 @@ const Services = ({lang}) => {
                                 <div className="card-body">
                                     <div className="card-img">
                                         <div className="img">
-                                            <Image src={card.img} />
+                                            <Image src={card.img} alt={card.title[lang]} />
                                         </div>
                                         <div className="img hover">
-                                            <Image className="hover" src={card.imgHover}/>
+                                            <Image className="hover" src={card.imgHover} alt={card.title[lang]}/>
                                         </div>
                                     </div>
                                     <div className="text">

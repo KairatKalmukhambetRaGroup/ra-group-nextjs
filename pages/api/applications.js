@@ -1,7 +1,7 @@
 import Application from '../../database/models/application';
 import connectMongo from '../../database/connect';
 
-export default async (req, res) => {
+const applicationApi = async (req, res) => {
     if(req.method === 'POST'){
         const data = req.body;
         try {
@@ -28,4 +28,6 @@ export default async (req, res) => {
     }else{
         return res.status(403).json();
     }
-}
+};
+
+export default applicationApi;

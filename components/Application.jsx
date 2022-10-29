@@ -198,7 +198,7 @@ const Application = ({lang}) => {
                                         <div className="os-body">
                                             <div className="os-image">
                                                 <div className="img">
-                                                   <Image src={os.img}/>
+                                                   <Image src={os.img} alt={os.text[lang]}/>
                                                 </div>
                                             </div>
                                             <div className="semibold-16-24">{os.text[lang]}</div>

@@ -41,7 +41,7 @@ export default function Admin() {
                 Router.push('/admin/login');
             }
         }
-    },)
+    }, [profile])
     return (
         <div id="admin">
             <Head>

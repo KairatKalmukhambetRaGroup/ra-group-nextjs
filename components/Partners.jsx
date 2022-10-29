@@ -5,7 +5,7 @@ import RagMirsot from '../utilities/partners/rag-mirsot.svg';
 import Irex from '../utilities/partners/irex.png';
 import RagZakyatInvestment from '../utilities/partners/rag-zakyat-investment.svg';
 import F from '../utilities/partners/f.png';
-import { getLang } from "../utilities/lang";
+// import { getLang } from "../utilities/lang";
 import Image from "next/image";
 
 const cards = [
@@ -88,7 +88,7 @@ const Partners = ({lang}) => {
                         <div className="card" key={key}>
                             <div className="card-default" style={{background: card.mainBg, border: card.border ? `1px solid ${card.border}` : 'none'}}>
                                 <div className="img">
-                                    <Image src={card.img} />                                 
+                                    <Image src={card.img} alt={card.name} />                                 
                                 </div>
                             
                             </div>

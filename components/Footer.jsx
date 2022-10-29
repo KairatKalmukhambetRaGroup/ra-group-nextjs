@@ -21,7 +21,7 @@ const Footer = ({lang}) =>{
         <footer id="footer">
             <div className="container">
                 <div className="footer-content">
-                    <a href="/" className="footer-logo">
+                    <a href="" className="footer-logo">
                         <i></i>
                     </a>
                     <div className="row">

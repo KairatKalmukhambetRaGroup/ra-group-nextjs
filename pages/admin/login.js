@@ -34,7 +34,7 @@ export default function Login() {
                 setProfile(JSON.parse(localStorage.getItem('profile')));
             }
         }
-    },)
+    }, [profile])
 
     const validateEmail = (email) => {
         return String(email)

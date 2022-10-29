@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import connectMongo from '../../database/connect';
 
-export default async (req, res) => {
+const loginApi = async (req, res) => {
     if(req.method === 'POST'){
         const {email, password, remember} = req.body;
         try {
@@ -31,3 +31,4 @@ export default async (req, res) => {
         return res.status(403).json();
     }
 };
+export default loginApi;
