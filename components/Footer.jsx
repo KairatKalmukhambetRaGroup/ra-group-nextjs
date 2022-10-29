@@ -15,8 +15,8 @@ const dictionary = {
     text: {ru: '', kz: '', en: ''},
 }
 
-const Footer = () =>{
-    const lang = getLang();
+const Footer = ({lang}) =>{
+    // const lang = getLang();
     return (
         <footer id="footer">
             <div className="container">

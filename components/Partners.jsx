@@ -73,8 +73,8 @@ const dictionary = {
     }
 }
 
-const Partners = () => {
-    const lang = getLang();
+const Partners = ({lang}) => {
+    // const lang = getLang();
     return (
         <div id="partners" className="block">
             <div className="container">

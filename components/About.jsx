@@ -24,8 +24,8 @@ const dictionary = {
     },
 }
 
-const About = () => {
-    const lang = getLang();
+const About = ({lang}) => {
+    // const lang = getLang();
     return (
         <div id="about" className="block">
             <div className="container">

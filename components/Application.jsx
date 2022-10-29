@@ -63,8 +63,8 @@ const dictionary = {
 
 // const API = axios.create({baseURL: 'http://localhost:3000/api/applications', validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"} });
 
-const Application = () => {
-    const lang = getLang();
+const Application = ({lang}) => {
+    // const lang = getLang();
 
     const [formData, setFormData] = useState(initialState);
     const [currentStep, setCurrentStep] = useState(1);

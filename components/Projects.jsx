@@ -58,8 +58,8 @@ const dictionary = {
     }
 }
 
-const Projects = () => {
-    const lang = getLang();
+const Projects = ({lang}) => {
+    // const lang = getLang();
     return (
         <div id="projects" className="block">
             <div className="container">

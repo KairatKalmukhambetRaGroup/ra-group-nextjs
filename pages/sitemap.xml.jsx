@@ -13,49 +13,49 @@ export const getServerSideProps = async ({ res }) => {
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
             xmlns:xhtml="http://www.w3.org/1999/xhtml">
             <url>
-                <loc>${BASE_URL}/en/index.js</loc>
+                <loc>${BASE_URL}</loc>
                 <xhtml:link
                     rel="alternate"
                     hreflang="ru"
-                    href="${BASE_URL}/ru/index.js"/>
+                    href="${BASE_URL}/ru"/>
                 <xhtml:link
                     rel="alternate"
                     hreflang="kz"
-                    href="${BASE_URL}/kz/index.js"/>
+                    href="${BASE_URL}/kz"/>
                 <xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="${BASE_URL}/en/page.js"/>
+                    href="${BASE_URL}"/>
             </url>
             <url>
-                <loc>${BASE_URL}/kz/index.js</loc>
+                <loc>${BASE_URL}/kz</loc>
                 <xhtml:link
                     rel="alternate"
                     hreflang="ru"
-                    href="${BASE_URL}/ru/index.js"/>
+                    href="${BASE_URL}/ru"/>
                 <xhtml:link
                     rel="alternate"
                     hreflang="kz"
-                    href="${BASE_URL}/kz/index.js"/>
+                    href="${BASE_URL}/kz"/>
                 <xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="${BASE_URL}/en/page.js"/>
+                    href="${BASE_URL}"/>
             </url>
             <url>
-                <loc>${BASE_URL}/ru/index.js</loc>
+                <loc>${BASE_URL}/ru</loc>
                 <xhtml:link
                     rel="alternate"
                     hreflang="ru"
-                    href="${BASE_URL}/ru/index.js"/>
+                    href="${BASE_URL}/ru"/>
                 <xhtml:link
                     rel="alternate"
                     hreflang="kz"
-                    href="${BASE_URL}/kz/index.js"/>
+                    href="${BASE_URL}/kz"/>
                 <xhtml:link
                     rel="alternate"
                     hreflang="en"
-                    href="${BASE_URL}/en/page.js"/>
+                    href="${BASE_URL}"/>
             </url>
         </urlset>
     `;

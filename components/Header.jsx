@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { getLang, setLang } from "../utilities/lang";
+import Router from "next/router";
+// import { getLang, setLang } from "../utilities/lang";
 
 const dictionary = {
     services: {ru: 'Услуги',kz: 'Қызметтер',en: 'Services'},
@@ -10,15 +11,19 @@ const dictionary = {
     language: {ru: 'RU',kz: 'KZ',en: 'EN'}
 }
 
-const Header = () => {
-    const lang = getLang();
+const Header = ({lang}) => {
+    // const lang = getLang();
     const [showLangs, setShowLangs] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const handleLangChange = (e) =>{
         e.preventDefault();
         setShowLangs(false);
         const newLang = e.currentTarget.dataset.lang;
-        setLang(newLang);
+        // setLang(newLang);
+        if(newLang === 'en')
+            Router.push('/', undefined, {shallow: true});
+        else
+            Router.push(newLang, undefined, {shallow: true});
         setShowMenu(false);
     }
 

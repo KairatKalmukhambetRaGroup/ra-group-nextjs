@@ -4,10 +4,11 @@ import Router, { useRouter } from "next/router";
 export function getLang() {
     const router = useRouter();
     const {lang} = router.query;
+    console.log(lang)
     if(lang){
         if(lang === 'ru' || lang === 'en' || lang === 'kz')
             return lang;
-        router.push('/en', undefined, {shallow: true});
+        router.push('/', undefined, {shallow: true});
     }
     return 'en'
 };

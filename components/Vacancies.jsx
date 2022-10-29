@@ -35,8 +35,8 @@ const dictionary = {
     motFoundMore: {ru: '', kz: 'мекенжайына жіберіңіз.', en: ''},
 }
 
-const Vacancies = () => {
-    const lang = getLang();
+const Vacancies = ({lang}) => {
+    // const lang = getLang();
     return (
         <div id="vacancies" className="block" >
             <div className="container">
