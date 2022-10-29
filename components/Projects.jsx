@@ -73,14 +73,14 @@ const Projects = ({lang}) => {
                 {cards && cards.map((card, key)=>(
                     <a className="card" href={card.link} key={key}>
                         <div className="img">
-                            <Image src={card.img} alt={card.title}/>
+                            <Image src={card.img}/>
                         </div>
                         <div className="card-overlay" style={{background: card.bg, color: card.color}} >
                             <div className="card-body">
                                 <div className="card-logo">
                                     {card.logo ? (
                                         <div className="img">
-                                            <Image src={card.logo} alt={card.title} />
+                                            <Image src={card.logo} />
                                         </div>
                                     ) : card.title}
                                 </div>

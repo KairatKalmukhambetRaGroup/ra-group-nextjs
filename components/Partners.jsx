@@ -88,7 +88,7 @@ const Partners = ({lang}) => {
                         <div className="card" key={key}>
                             <div className="card-default" style={{background: card.mainBg, border: card.border ? `1px solid ${card.border}` : 'none'}}>
                                 <div className="img">
-                                    <Image src={card.img} alt={card.name} />                                 
+                                    <Image src={card.img} />                                 
                                 </div>
                             
                             </div>
