@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <html lang="kz" style={{scrollBehavior:'smooth'}} />
+        {/* <html lang="kz" style={{scrollBehavior:'smooth'}} /> */}
         <title>RA Group</title>
         <meta name='description' content='Сіздің бизнесіңіз үшін сандық шешімдер'/>
       </Head>
