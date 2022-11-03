@@ -1,4 +1,17 @@
 {
+    "month.january": "Қаңтар",
+    "month.february": "Ақпан",
+    "month.march": "Наурыз",
+    "month.april": "Сәуір",
+    "month.may": "Мамыр",
+    "month.june": "Маусым",
+    "month.july": "Шілде",
+    "month.august": "Тамыз",
+    "month.september": "Қыркүйек",
+    "month.october": "Қазан",
+    "month.november": "Қараша",
+    "month.december": "Желтоқсан",
+
     "header.services": "Қызметтер",
     "header.about": "Біз туралы",
     "header.projects": "Жобалар",
@@ -31,5 +44,25 @@
     
     "footer.user.agreement": "Пайдаланушы келісімі",
     "footer.generalterms": "Жалпы ережелер мен шарттар",
-    "footer.location" : "Қазақстан, Нұр-Сұлтан қ., Есіл ауданы, Мәңгілік Ел даңғылы, 55/22 корпус, С4.3 блоктары, 140 кеңсе, индекс Z05T3F5"
+    "footer.location" : "Қазақстан, Нұр-Сұлтан қ., Есіл ауданы, Мәңгілік Ел даңғылы, 55/22 корпус, С4.3 блоктары, 140 кеңсе, индекс Z05T3F5",
+
+    "admin.table.header": "Кеңес алуға өтініштер",
+    "admin.table.th.name": "Аты-жөні",
+    "admin.table.th.company": "Компания",
+    "admin.table.th.email": "Электрондық пошта",
+    "admin.table.th.format": "Формат",
+    "admin.table.th.os": "ОЖ",
+    "admin.table.th.language": "Тіл",
+    "admin.table.th.date": "Күні",
+    "admin.table.data.format.production": "Өнімді әзірлеу",
+    "admin.table.data.format.outsource": "Аутсорсинг",
+    "admin.table.data.os.web": "Веб платформа",
+    "admin.table.data.os.crm": "CRM жүйесі",
+    "admin.table.data.os.mobile": "Мобильді қолданба",
+    "admin.table.data.os.other": "Басқа",
+    "admin.table.filter.lastWeek": "cоңғы апта",
+    "admin.table.filter.lastMonth": "соңғы ай",
+    "admin.table.filter.lastHalfYear": "жарты жыл",
+    "admin.table.filter.lastYear": "соңғы жыл",
+    "admin.table.applications.count": "Өтініштер саны: {count}"
 }

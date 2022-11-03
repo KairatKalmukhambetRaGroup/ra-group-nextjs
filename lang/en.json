@@ -1,4 +1,17 @@
 {
+    "month.january": "January",
+    "month.february": "February",
+    "month.march": "March",
+    "month.april": "April",
+    "month.may": "May",
+    "month.june": "June",
+    "month.july": "July",
+    "month.august": "August",
+    "month.september": "September",
+    "month.october": "October",
+    "month.november": "November",
+    "month.december": "December",
+
     "header.services": "Services",
     "header.about": "About",
     "header.projects": "Projects",
@@ -31,5 +44,26 @@
     
     "footer.user.agreement": "User Agreement",
     "footer.generalterms": "General terms and conditions",
-    "footer.location" : "Kazakhstan, Nur-Sultan city, Yesil district, Mangilik El Avenue, building 55/22, blocks C4.3, office 140, postal code Z05T3F5"
+    "footer.location" : "Kazakhstan, Nur-Sultan city, Yesil district, Mangilik El Avenue, building 55/22, blocks C4.3, office 140, postal code Z05T3F5",
+
+    "admin.table.header": "Applications for a consultation",
+    "admin.table.th.name": "Fullname",
+    "admin.table.th.company": "Company name",
+    "admin.table.th.email": "Email",
+    "admin.table.th.format": "Format",
+    "admin.table.th.os": "OS",
+    "admin.table.th.language": "Language",
+    "admin.table.th.date": "Date",
+    "admin.table.data.format.production": "Product development",
+    "admin.table.data.format.outsource": "Outsourcing",
+    "admin.table.data.os.web": "Web platform",
+    "admin.table.data.os.crm": "CRM system",
+    "admin.table.data.os.mobile": "Mobile app",
+    "admin.table.data.os.other": "Other",
+    "admin.table.filter.lastWeek": "last week",
+    "admin.table.filter.lastMonth": "last month",
+    "admin.table.filter.lastHalfYear": "last half a year",
+    "admin.table.filter.lastYear": "last year",
+    "admin.table.applications.count": "Total applications: {count}"
+
 }

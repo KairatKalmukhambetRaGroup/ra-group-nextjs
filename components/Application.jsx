@@ -118,7 +118,7 @@ const Application = () => {
             setCurrentStep(4);
             try {
                 // const data = await API.post('/', {...formData, locale});
-                const data = await axios.post('/api/applications', {...formData, locale}, {validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}});
+                const data = await axios.post('/api/applications', {...formData, lang: locale}, {validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}});
                 if(data.status >= 200 && data.status < 300)
                     setSubmitionResult('success');
                 else

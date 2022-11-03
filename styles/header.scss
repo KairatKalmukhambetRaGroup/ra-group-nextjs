@@ -9,6 +9,7 @@
     .navbar{
         padding: 20px 0;
         .navbar-brand{
+            cursor: pointer;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -228,4 +229,16 @@
         }
     }
 
+    &.admin{
+        padding: 0 80px;
+        .navbar{
+            padding: 24px 0;
+            .nav{
+                display: flex;
+            }
+            .btns{
+                display: flex;
+            }
+        }
+    }
 }

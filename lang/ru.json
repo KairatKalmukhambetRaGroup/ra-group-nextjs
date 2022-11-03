@@ -1,4 +1,17 @@
 {
+    "month.january": "Январь",
+    "month.february": "Февраль",
+    "month.march": "Март",
+    "month.april": "Апрель",
+    "month.may": "Май",
+    "month.june": "Июнь",
+    "month.july": "Июль",
+    "month.august": "Август",
+    "month.september": "Сентябрь",
+    "month.october": "Октябрь",
+    "month.november": "Ноябрь",
+    "month.december": "Декабрь",
+
     "header.services": "Услуги",
     "header.about": "О нас",
     "header.projects": "Проекты",
@@ -31,5 +44,25 @@
     
     "footer.user.agreement": "Пользовательское соглашение",
     "footer.generalterms": "Общие положения и условия",
-    "footer.location" : "Казахстан, город Нур-Султан, район Есиль, Проспект Мангилик Ел, здание 55/22, блоки C4.3, офис 140, почтовый индекс Z05T3F5"
+    "footer.location" : "Казахстан, город Нур-Султан, район Есиль, Проспект Мангилик Ел, здание 55/22, блоки C4.3, офис 140, почтовый индекс Z05T3F5",
+
+    "admin.table.header": "Заявки на консультацию",
+    "admin.table.th.name": "Имя Фамилия",
+    "admin.table.th.company": "Компания",
+    "admin.table.th.email": "Электронная почта",
+    "admin.table.th.format": "Формат",
+    "admin.table.th.os": "ПО",
+    "admin.table.th.language": "Язык",
+    "admin.table.th.date": "Дата",
+    "admin.table.data.format.production": "Продуктовая разработка",
+    "admin.table.data.format.outsource": "Аутсорсинг",
+    "admin.table.data.os.web": "Веб платформа",
+    "admin.table.data.os.crm": "CRM система",
+    "admin.table.data.os.mobile": "Мобильное приложение",
+    "admin.table.data.os.other": "Другое",
+    "admin.table.filter.lastWeek": "за неделю",
+    "admin.table.filter.lastMonth": "за месяц",
+    "admin.table.filter.lastHalfYear": "за полгода",
+    "admin.table.filter.lastYear": "за год",
+    "admin.table.applications.count": "Всего Заявок: ${count}"
 }
