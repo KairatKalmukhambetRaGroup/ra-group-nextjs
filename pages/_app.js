@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <Component {...pageProps} dir={getDirection(locale)} />
+      <Component {...pageProps}/>
     </IntlProvider>
   )
 }
