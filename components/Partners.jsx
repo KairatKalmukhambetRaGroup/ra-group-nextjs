@@ -21,18 +21,18 @@ const cards = [
             en: 'Consulting services in various industries and services.'
         }
     },
-    {
-        img: Irex,
-        mainBg: '#F2F2F2',
-        bg: '#262729',
-        color: '#FFFFFF',
-        name: 'IREX',
-        text: {
-            ru: 'Предложение по передаче технологий для правительства Катар',
-            kz: 'Катар Үкіметі үшін технологиялар трансферті туралы ұсыныс',
-            en: 'Technology Transfer Proposal for the Government of Qatar'
-        }
-    },
+    // {
+    //     img: Irex,
+    //     mainBg: '#F2F2F2',
+    //     bg: '#262729',
+    //     color: '#FFFFFF',
+    //     name: 'IREX',
+    //     text: {
+    //         ru: 'Предложение по передаче технологий для правительства Катар',
+    //         kz: 'Катар Үкіметі үшін технологиялар трансферті туралы ұсыныс',
+    //         en: 'Technology Transfer Proposal for the Government of Qatar'
+    //     }
+    // },
     {
         img: RagZakyatInvestment,
         mainBg: '#0A0A0A',
@@ -46,18 +46,18 @@ const cards = [
             en: 'Investment company'
         }
     },
-    {
-        img: F,
-        mainBg: '#E7E7E7',
-        bg: '#00A944',
-        color: '#FFFFFF',
-        name: 'F',
-        text: {
-            ru: 'Корпоративная платформа',
-            kz: 'Кәсіпорын платформасы',
-            en: 'Enterprise platform'
-        }
-    },
+    // {
+    //     img: F,
+    //     mainBg: '#E7E7E7',
+    //     bg: '#00A944',
+    //     color: '#FFFFFF',
+    //     name: 'F',
+    //     text: {
+    //         ru: 'Корпоративная платформа',
+    //         kz: 'Кәсіпорын платформасы',
+    //         en: 'Enterprise platform'
+    //     }
+    // },
 ];
 
 const dictionary = {

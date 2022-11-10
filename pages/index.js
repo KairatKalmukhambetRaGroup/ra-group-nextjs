@@ -2,7 +2,7 @@ import Header from '../components/Header';
 import TopBlock from '../components/TopBlock';
 import Services from '../components/Services';
 import About from '../components/About';
-import Projects from '../components/Projects';
+// import Projects from '../components/Projects';
 import Partners from '../components/Partners';
 import Application from '../components/Application';
 import Vacancies from '../components/Vacancies';
@@ -21,7 +21,7 @@ export default function Home() {
       <TopBlock lang="en"/>
       <Services lang="en"/>
       <About lang="en"/>
-      <Projects lang="en"/>
+      {/* <Projects lang="en"/> */}
       <Partners lang="en"/>
       <Application lang="en"/>
       <Vacancies lang="en"/>
