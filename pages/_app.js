@@ -24,6 +24,7 @@ import '../styles/vacancies.scss';
 // admin
 import '../styles/login.scss';
 import '../styles/admin.scss';
+import '../styles/vcards.scss';
 
 
 

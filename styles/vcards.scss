@@ -1,0 +1,149 @@
+@use './variables' as v;
+#vcards{
+    padding: 0 80px;
+    padding-top: 80px;   
+    box-sizing: border-box;
+    
+    background: v.$grey;
+    min-height: 100vh;
+    .content{
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .btn{
+            background: v.$purple;
+            color: white;
+            font-weight: 500;
+        }
+    }
+
+    .vcards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 32px;
+        .vcard-item{
+            width: calc(100% / 6 - (192px/5));
+            box-sizing: border-box;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            .vcard-body{
+                padding: 16px;
+                box-sizing: border-box;
+                font-size: 16px;
+                line-height: 20px;
+                border-bottom: 1px solid v.$grey;
+                border-top: 1px solid v.$grey;
+                cursor: pointer;
+                flex-grow: 1;
+            }
+            .vcard-footer{
+                display: flex;
+                flex-direction: row;
+                // background: ;
+                div,a{
+                    display: block;
+                    cursor: pointer;
+                    width: calc(100% / 3);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 48px;
+                    i{
+                        // display: block;
+                        width: 20px;
+                        height: 20px;
+                    }
+                    &:hover{
+                        background: rgba($color: v.$purple, $alpha: .4);
+                    }
+                }
+                .download{
+                    i{
+                        content: url('../utilities/icons/download-solid.svg');
+                    }
+                }
+                .stat{
+                    i{
+                        content: url('../utilities/icons/chart-simple-solid.svg');   
+                    }
+                }
+                .edit{
+                    i{
+                        content: url('../utilities/icons/pen-solid.svg');
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+#vcard-create, #vcard-edit{
+    padding: 0 80px;
+    padding-top: 96px;   
+    box-sizing: border-box;
+    
+    background: v.$grey;
+    min-height: 100vh;
+}
+.vcard-form{
+    padding-top: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .form-group{
+            width: 100%;
+            label{
+                font-size: 16px;
+                color: v.$black;
+                display: block;
+                padding-bottom: 8px;
+            }
+            input{
+                display: block;
+                width: 100%;
+                font-size: 18px;
+                font-weight: 400;
+                padding: 4px 8px;
+            }
+        }
+        .row{
+            display: flex;
+            flex-direction: row;
+            gap: 16px 32px;
+            flex-wrap: wrap;
+            .form-group{
+                width: calc(50% - 16px);
+                min-width: calc(50% - 16px);
+            }
+        }
+        .row-left{
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            button.submit{
+                font-size: 20px;
+                line-height: 24px;
+                font-weight: 500;
+                background: v.$purple;
+                color: white;
+                padding: 8px 64px;
+            }
+        }
+    }
+}

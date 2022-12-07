@@ -46,6 +46,9 @@
     "footer.generalterms": "Общие положения и условия",
     "footer.location" : "Казахстан, город Нур-Султан, район Есиль, Проспект Мангилик Ел, здание 55/22, блоки C4.3, офис 140, почтовый индекс Z05T3F5",
 
+    "admin.header.application": "Заявки",
+    "admin.header.vcards": "VCards",
+
     "admin.table.header": "Заявки на консультацию",
     "admin.table.th.name": "Имя Фамилия",
     "admin.table.th.company": "Компания",

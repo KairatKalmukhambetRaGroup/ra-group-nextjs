@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { FormattedMessage } from "react-intl";
+
 
 const language = {ru: 'RU',kz: 'KZ',en: 'EN'};
 
@@ -18,6 +20,14 @@ const AdminHeader = () => {
                         <i></i>
                     </span>
                 </Link>
+                <div className="nav">
+                    <li className="nav-item">
+                        <a className="nav-link" href={`/${locale}/admin`}><FormattedMessage id="admin.header.application" /></a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href={`/${locale}/admin/vcards`}><FormattedMessage id="admin.header.vcards" /></a>
+                    </li>
+                </div>
                 <div className="btns">
                     <div className={`dropdown ${showLangs ? 'active': ''}`}>
                         <a className="dropbtn" onClick={(e)=>{e.preventDefault(); setShowLangs(!showLangs)}}>{language[locale]}</a>
