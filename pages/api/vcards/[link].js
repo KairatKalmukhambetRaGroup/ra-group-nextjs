@@ -6,11 +6,11 @@ import axios from 'axios';
 import { useUserAgent } from 'next-useragent'
 
 const APIKEY = 'bddaf311001242b39227cc573128e7ca';
-async function getIP(){
-    const {data} = await axios.get('https://api.ipify.org?format=json');
-    // console.log(data.ip);
-    return data.ip;
-}
+// async function getIP(){
+//     const {data} = await axios.get('https://api.ipify.org?format=json');
+//     // console.log(data.ip);
+//     return data.ip;
+// }
 
 async function getGeo(ip){
     const {data} = await axios.get(`https://ipgeolocation.abstractapi.com/v1/?api_key=${APIKEY}&ip_address=${ip}`)
@@ -21,7 +21,7 @@ async function getGeo(ip){
 
 
 const api = async (req, res) => {
-    const {link, type} = req.query;
+    const {link, type, ip} = req.query;
     
     if(req.method === 'GET'){
         try {
@@ -39,7 +39,7 @@ const api = async (req, res) => {
             else{
 
                 // IP
-                const ip = await getIP();
+                // const ip = await getIP();
                 if(ip){
                     const geoData = await getGeo(ip);
                     // console.log(geoData);
