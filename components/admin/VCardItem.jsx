@@ -48,7 +48,9 @@ const VCardItem = ({vcard}) => {
                 <a className="download" id={`save-${vcard.link}`} download>
                     <i></i>
                 </a>
-                <div className="stat"><i></i></div>
+                <Link href={`/${locale}/admin/vcards/${vcard.link}`}>
+                    <div className="stat"><i></i></div>
+                </Link>
                 <Link href={`/${locale}/admin/vcards/${vcard.link}/edit`}>
                     <div className="edit"><i></i></div>
                 </Link>

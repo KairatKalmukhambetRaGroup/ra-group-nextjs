@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const scanSchema = mongoose.Schema({
+    ip: String,
     country: String,
     city: String,
     browser: String,

@@ -147,3 +147,90 @@
         }
     }
 }
+
+#vcard-data{
+    padding: 0 80px;
+    padding-top: 96px;   
+    box-sizing: border-box;
+    
+    background: v.$grey;
+    min-height: 100vh;
+
+    .info-qr{
+        display: flex;
+        flex-direction: row;
+
+        gap: 32px;
+
+        margin-bottom: 32px;
+        
+        .info{
+            background: v.$white;
+            padding: 20px 16px;
+            border-radius: 16px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 50%;
+            .info-row{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: 400;
+                span{
+                    font-weight: 500;
+                    a{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .qr{
+            background: v.$white;
+            padding: 20px 16px;
+            border-radius: 16px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+
+            overflow: hidden;
+            border-radius: 16px;
+            #qr{
+                aspect-ratio: 1/1;
+                width: 256px;
+                
+            }
+            #download{
+                background: v.$green;
+                color: v.$white;
+                font-size: 20px;
+                line-height: 20px;
+                font-weight: 400;
+                border-radius: 8px;
+                padding: 4px 16px;
+                i{
+                    width: 16px;
+                    content: url('../utilities/icons/download-solid-white.svg');
+                }
+            }
+        }
+    }
+
+    table{
+        background: v.$white;
+        padding: 20px;
+        border-radius: 16px;
+        width: 100%;
+        td{
+            border-bottom: 1px solid v.$grey;
+            padding: 16px 0;
+        }
+    }
+
+}
