@@ -3,7 +3,7 @@ import VCardModel from '../../../database/models/vcard';
 import Scan from '../../../database/models/scan';
 import connectMongo from '../../../database/connect';
 import axios from 'axios';
-import { parse } from 'next-useragent'
+import { useUserAgent } from 'next-useragent'
 
 const APIKEY = 'bddaf311001242b39227cc573128e7ca';
 async function getIP(){
@@ -45,7 +45,7 @@ const api = async (req, res) => {
                     // console.log(geoData);
                     if(geoData && geoData.country){
                         const st = req.headers['user-agent']
-                        const ua = parse(st)
+                        const ua = useUserAgent(st)
                         const browser = ua.browser + ' ' + ua.browserVersion;
                         const platform = ua.os + ' ' + ua.osVersion;
 
