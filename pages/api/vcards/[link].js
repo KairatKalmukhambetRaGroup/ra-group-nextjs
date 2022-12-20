@@ -3,7 +3,7 @@ import VCardModel from '../../../database/models/vcard';
 import Scan from '../../../database/models/scan';
 import connectMongo from '../../../database/connect';
 import axios from 'axios';
-// import { useUserAgent } from 'next-useragent'
+import { useUserAgent } from 'next-useragent'
 
 const APIKEY = 'bddaf311001242b39227cc573128e7ca';
 async function getIP(){
@@ -44,14 +44,14 @@ const api = async (req, res) => {
                     const geoData = await getGeo(ip);
                     // console.log(geoData);
                     if(geoData && geoData.country){
-                        // const st = req.headers['user-agent']
-                        // const ua = useUserAgent(st)
-                        // const browser = ua.browser + ' ' + ua.browserVersion;
-                        // const platform = ua.os + ' ' + ua.osVersion;
+                        const st = req.headers['user-agent']
+                        const ua = useUserAgent(st)
+                        const browser = ua.browser + ' ' + ua.browserVersion;
+                        const platform = ua.os + ' ' + ua.osVersion;
 
 
-                        // const scan = new Scan({ip: ip, country: geoData.country, city: geoData.city, browser, platform});
-                        const scan = new Scan({ip: ip, country: geoData.country, city: geoData.city});
+                        const scan = new Scan({ip: ip, country: geoData.country, city: geoData.city, browser, platform});
+                        // const scan = new Scan({ip: ip, country: geoData.country, city: geoData.city});
                         await scan.save();
 
                         await VCardModel.findByIdAndUpdate(vcard._id, {$push: {scans: scan._id}});
