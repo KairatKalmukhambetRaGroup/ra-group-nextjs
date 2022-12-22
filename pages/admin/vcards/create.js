@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../../components/AdminHeader";
 import VCardForm from "../../../components/VCardForm";
 
-const initVCard = {link: '', firstname: '', lastname: '', email: '', website: '', mobile: '', fax: '', organization: '', workplace: '', country: '', city: ''};
+const initVCard = {link: '', firstname: '', lastname: '', email: '', website: '', mobile: '', workphone: '', fax: '', organization: '', workplace: '', country: '', city: ''};
 
 const VCardCreate = () => {
     const [vcardForm, setVcardForm] = useState(initVCard);
@@ -21,7 +21,6 @@ const VCardCreate = () => {
 
     async function createVCard(data) {
        const resData = await axios.patch('/api/vcards', data);
-       console.log(resData);
     }
     
     

@@ -65,7 +65,8 @@ const api = async (req, res) => {
                 vCard.lastName = vcard.lastname;
                 vCard.email = vcard.email;
                 vCard.workUrl=vcard.website;
-                vCard.mobile = vcard.mobile;
+                vCard.cellPhone = vcard.mobile;
+                vCard.workphone = vcard.workphone;
                 vCard.organization = vcard.organization;
                 vCard.title = vcard.workplace;
                 vCard.country = vcard.country;

@@ -44,11 +44,15 @@ const VCardForm = ({data, handleChange, handleSubmit}) => {
                             <label>Website</label>
                             <input type="text" name="website" value={data.website} onChange={handleChange} />
                         </div>
-                        <div className="form-group">
-                            <label>Mobile</label>
-                            <input type="text" name="mobile" value={data.mobile} onChange={handleChange} />
-                        </div>
                         <div className="row">
+                            <div className="form-group">
+                                <label>Personal phone number</label>
+                                <input type="text" name="mobile" value={data.mobile} onChange={handleChange} />
+                            </div>
+                            <div className="form-group">
+                                <label>Work phone number</label>
+                                <input type="text" name="workphone" value={data.workphone} onChange={handleChange} />
+                            </div>
                             <div className="form-group">
                                 <label>Organization</label>
                                 <input type="text" name="organization" value={data.organization} onChange={handleChange} />

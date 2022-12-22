@@ -7,6 +7,7 @@ const vcardSchema = mongoose.Schema({
     email: {type: String},
     website: {type: String},
     mobile: {type: String},
+    workphone: {type: String},
     fax: {type: String},
     organization: {type: String},
     workplace: {type: String},

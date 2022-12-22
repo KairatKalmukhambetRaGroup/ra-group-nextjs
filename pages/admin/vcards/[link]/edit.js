@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../../../components/AdminHeader";
 import VCardForm from "../../../../components/VCardForm";
 
-const initVCard = {link: '', firstname: '', lastname: '', email: '', website: '', mobile: '', fax: '', organization: '', workplace: '', country: '', city: ''};
+const initVCard = {link: '', firstname: '', lastname: '', email: '', website: '', mobile: '',workphone: '', fax: '', organization: '', workplace: '', country: '', city: ''};
 
 const VCard = () => {
     const router = useRouter();
@@ -13,6 +13,7 @@ const VCard = () => {
 
     async function fetchVCard(link){
         const resData = await axios.get(`/api/vcards/${link}?type=edit`);
+        console.log(resData.data)
         setVcardForm(resData.data);
     }
 
