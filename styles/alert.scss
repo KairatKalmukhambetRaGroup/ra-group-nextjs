@@ -1,0 +1,81 @@
+@use 'variables' as v;
+@import 'adaptive';
+
+.alert{
+    position: fixed;
+    top: 90px;
+    right: 10px;
+    width: 240px;
+    z-index: 1000;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: v.$black;
+    background: v.$white;
+    border: 1px solid v.$grey;
+    transition: right .2s ease-in-out;
+    overflow: hidden;
+    .content{
+        padding: 20px 16px 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        span{
+            padding-right: 10px;
+            i{
+                width: 20px;
+            }
+            &.success i{content: url('../utilities/icons/circle-check-solid.svg');}
+            &.error i{content: url('../utilities/icons/circle-exclamation-solid.svg');}
+        }
+    }
+    .bottom{
+        display: flex;
+        flex-direction: row;
+        height: 4px;
+        .line{
+            animation: loading 5s;
+            animation-fill-mode: forwards;
+            height: 4px;
+            width: 100%;
+        }
+        &.success{
+            .line{
+                background-color: v.$lightgreen;
+            }
+        }
+        &.error{
+            .line{
+                background-color: v.$error;
+            }
+        }
+    }
+    &.hidden{
+        right: -250px;
+        .bottom .line{
+            animation: none;
+            background: none;
+        }
+    }
+    .close{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+        i{
+            content: url('../utilities/icons/xmark-grey.svg');
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+@keyframes loading {
+    from {
+        width: 100%;
+    }
+    to{
+        width: 0;
+    }   
+}
