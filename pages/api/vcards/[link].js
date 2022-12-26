@@ -5,7 +5,7 @@ import connectMongo from '../../../database/connect';
 import axios from 'axios';
 import { useUserAgent } from 'next-useragent'
 
-const APIKEY = 'bddaf311001242b39227cc573128e7ca';
+const APIKEY = process.env.ABSTRACTAPI_KEY;
 // async function getIP(){
 //     const {data} = await axios.get('https://api.ipify.org?format=json');
 //     // console.log(data.ip);
@@ -33,8 +33,24 @@ const api = async (req, res) => {
                 return res.json(vcard);
             }
             else if(type && type === 'data'){
-                const vCard = await VCardModel.findById(vcard._id).populate('scans');
-                return res.json(vCard);
+
+                const {page: pg} = req.query;
+                const page = pg ? pg : 1;
+                const limit = 20;
+                const skip = (page-1) * limit;
+
+                const countVcard = await VCardModel.findById(vcard._id).populate('scans');
+                const totalScans = countVcard.scans.length;
+                const totalPages = Math.ceil(totalScans / limit);
+                const vCard = await VCardModel.findById(vcard._id).populate({
+                    path: 'scans',
+                    options: {
+                        sort: {'createdAt': -1},
+                        limit: limit,
+                        skip: skip,
+                    }
+                });
+                return res.json({vcard: vCard, page, totalScans, totalPages});
             }
             else{
 
@@ -84,6 +100,18 @@ const api = async (req, res) => {
         }
 
 
+    }
+    else if(req.method === 'DELETE'){
+        try {
+            await connectMongo();
+            const vcard = await VCardModel.findOne({link: link});
+            await VCardModel.findByIdAndRemove(vcard._id);
+
+            return res.json();
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json();
+        }
     }else{
         return res.status(404).json();
     }

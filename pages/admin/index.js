@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import AdminHeader from "../../components/AdminHeader";
 
 import { FormattedMessage , useIntl} from "react-intl";
+import Pagination from "../../components/Pagination";
 
 const language = {ru: 'RU',kz: 'KZ',en: 'EN'};
 
@@ -26,7 +27,8 @@ export default function Admin() {
         const resData = await axios.get(`/api/applications?page=${page}&start=${start}&end=${end}`);
         const {applications, page:pg, totalPages: tp, limit, count} = resData.data;
         setApplications(applications);
-        setPage(pg);
+        if(page !== pg)
+            setPage(pg);
         setTotalPages(tp);
         setTotalApplications(count);
     }
@@ -209,58 +211,7 @@ export default function Admin() {
                             ))}
                         </tbody>
                     </table>
-                    {totalPages>1 && (
-                        <div className='paginate-container'>
-                            <div className='paginate'> 
-                                {/* {{}} */}
-                                    {page > 1 && (
-                                        <span className='page-btn page-prev' onClick={(e)=>{e.preventDefault(); setPage(Number(page)-1)}}>
-                                            <i></i>
-                                        </span>
-                                    )}
-                                    {page > 3 && (
-                                        <span className='page' onClick={(e)=>{e.preventDefault(); setPage(1)}}>
-                                            1
-                                        </span>
-                                    )}
-                                    {page > 3 && (<span className='ellipsis' >...</span>)}
-                                    {(page === totalPages && page>2) && (
-                                        <span className='page' onClick={(e)=>{e.preventDefault(); setPage(Number(page)-2)}}>
-                                            {Number(page)-2}
-                                        </span>
-                                    )}
-                                    {page > 1 && (
-                                        <span className={`page`} onClick={(e)=>{e.preventDefault(); setPage(Number(page)-1)}}>
-                                            {Number(page)-1}
-                                        </span>
-                                    )}
-                                    <span className='page active'>
-                                        {page}
-                                    </span>
-                                    {page < totalPages && (
-                                        <span className='page' onClick={(e)=>{e.preventDefault(); setPage(Number(page)+1)}}>
-                                            {Number(page)+1}
-                                        </span>
-                                    )}
-                                    {(page === 1 && page < totalPages-1) && (
-                                        <span className='page' onClick={(e)=>{e.preventDefault(); setPage(Number(page)+2)}}>
-                                            {Number(page)+2}
-                                        </span>
-                                    )}
-                                    {page < totalPages-2 && (<span className='ellipsis' >...</span>)}
-                                    {page < totalPages-2 && (
-                                        <span className='page' onClick={(e)=>{e.preventDefault(); setPage(totalPages)}}>
-                                            {totalPages}
-                                        </span>
-                                    )}
-                                    {page < totalPages && (
-                                        <span className='page-btn page-next' onClick={(e)=>{e.preventDefault(); setPage(Number(page)+1)}}>
-                                            <i></i>
-                                        </span>
-                                    )}
-                            </div>
-                        </div>
-                    )}
+                    <Pagination page={page} totalPages={totalPages} setPage={setPage} />
                 </div>
             </div>
         </>

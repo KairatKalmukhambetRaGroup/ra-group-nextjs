@@ -1,0 +1,41 @@
+@use './variables' as v;
+@import './adaptive';
+.paginate-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    .paginate{
+        display: flex;
+        gap: 4px;
+        .paginate-item{
+            box-sizing: border-box;
+            cursor: pointer;
+            min-width: 24px;
+            display: block;
+            background: v.$white;
+            color: v.$black;
+            padding: 6px 8px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 16px;
+            &.active{
+                background: v.$purple;
+                color: v.$white;
+            }
+            &.page-next{
+                i{
+                    content: url('../utilities/icons/angle-right-black.svg');
+                }
+            }
+            &.page-prev{
+                i{
+                    content: url('../utilities/icons/angle-left-black.svg');
+                }
+            }
+
+        }
+    }
+}

@@ -4,24 +4,30 @@ import { useEffect } from "react";
 import { useState } from "react";
 import QRCode from "qrcode-svg";
 import AdminHeader from "../../../../components/AdminHeader";
+import Pagination from "../../../../components/Pagination";
 
 const VCard = () => {
     const router = useRouter();
     const {link} = router.query;
     
     const [data, setData] = useState(null);
-
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    
     async function fetchData(link) {
-        const {data} = await axios.get(`/api/vcards/${link}?type=data`);
-        setData(data);
+        const {data} = await axios.get(`/api/vcards/${link}?type=data&page=${page}`);
+        console.log(data)
+        setData(data.vcard);
+        if(page !== data.page)
+            setPage(data.page);
+        setTotalPages(data.totalPages);
     }
 
     useEffect(()=>{
         if(link){
             fetchData(link);
-            
         }
-    },[link])
+    },[link, page])
 
     useEffect(()=>{
         if(data){
@@ -53,7 +59,7 @@ const VCard = () => {
     },[data])
 
     function formatDate(string){
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var options = { year: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hourCycle: 'h24', day: 'numeric' };
         return new Date(string).toLocaleDateString(router.locale,options);
     }
 
@@ -112,6 +118,7 @@ const VCard = () => {
                                 ))}
                             </tbody>
                         </table>
+                        <Pagination page={page} totalPages={totalPages} setPage={setPage} />
                     </>
                 )}
             </div>

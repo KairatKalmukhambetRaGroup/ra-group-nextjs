@@ -18,7 +18,7 @@ const applicationApi = async (req, res) => {
     }else if(req.method === 'GET'){
         const {page: pg, start, end} = req.query;
         const page = pg ? pg : 1;
-        const limit = 15;
+        const limit = 20;
         const skip = limit * (page-1);
         if(!start || !end)
             return res.status(400).json({error: "Missing or invalid required parameter"});

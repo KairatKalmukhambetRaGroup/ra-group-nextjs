@@ -1,7 +1,7 @@
 import QRCode from "qrcode-svg";
 import { useEffect } from "react";
 
-const VCardForm = ({data, handleChange, handleSubmit}) => {
+const VCardForm = ({data, handleChange, handleDelete, handleSubmit, isEdit=false}) => {
     useEffect(()=>{
         if(data.link){
             var qrcode = new QRCode({
@@ -74,8 +74,13 @@ const VCardForm = ({data, handleChange, handleSubmit}) => {
                             <button className="btn submit" type="submit">Submit</button>
                         </div>
                     </form>
-                    <div id="qr" style={{width: '256px'}}>
+                    <div className="side">
+                        <div id="qr" style={{width: '256px'}}>
 
+                        </div>
+                        {isEdit && (
+                            <button className="btn delete" onClick={handleDelete}>Delete VCard</button>
+                        )}
                     </div>
                 </>
             )}    

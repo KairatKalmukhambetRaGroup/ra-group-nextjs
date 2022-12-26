@@ -1,0 +1,67 @@
+@use './variables' as v;
+@import './adaptive';
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    background: rgba($color: v.$black, $alpha: .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-body{
+        background: v.$white;
+        border: 1px solid v.$grey;
+        border-radius: 16px;
+        padding: 20px 16px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .modal-header{
+            position: relative;
+            font-size: 20px;
+            font-weight: 500;
+            .close{
+                cursor: pointer;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                display: block;
+                i{
+                    // display: block;
+                    content: url('../utilities/icons/xmark-black.svg');
+                    width: 20px;
+                    height: 20px;
+                }
+                
+            }
+        }
+        .modal-content{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .modal-footer{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: right;
+            .btn{
+                background: v.$grey;
+                &.success{
+                    background: v.$lightgreen;
+                    color: v.$white;
+                }          
+                &.error{
+                    background: v.$error;
+                    color: v.$white;
+                }                
+            }
+        }
+
+    }
+}

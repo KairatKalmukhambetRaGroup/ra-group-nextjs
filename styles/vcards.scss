@@ -146,6 +146,15 @@
             }
         }
     }
+    .side{
+        .btn.delete{
+            margin-top: 10px;
+            width: 100%;
+            background: v.$error;
+            color: v.$white;
+            font-size: 16px;
+        }
+    }
 }
 
 #vcard-data{
@@ -224,12 +233,32 @@
 
     table{
         background: v.$white;
-        padding: 20px;
         border-radius: 16px;
         width: 100%;
-        td{
-            border-bottom: 1px solid v.$grey;
-            padding: 16px 0;
+        border-spacing: 0;
+        tr{
+            th{
+                border-bottom: 1px solid v.$grey;
+            }
+            td, th{
+                padding: 16px 0;
+                text-align: center;
+                &:last-of-type{
+                    padding-right: 20px;
+                }
+                &:first-of-type{
+                    padding-left: 20px;
+                }
+            }
+            &:hover{
+                background: rgba($color: v.$grey, $alpha: .5);
+            }
+
+            &:last-of-type{
+                td{
+                    border: none;
+                }   
+            }
         }
     }
 

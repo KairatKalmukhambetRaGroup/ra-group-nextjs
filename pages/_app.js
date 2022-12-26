@@ -11,6 +11,8 @@ import '../styles/flexbox.scss';
 import '../styles/inputs.scss';
 import '../styles/loading.scss';
 import '../styles/alert.scss';
+import '../styles/pagination.scss';
+import '../styles/modal.scss';
 import '../styles/typography.scss';
 import '../styles/header.scss';
 import '../styles/about.scss';
