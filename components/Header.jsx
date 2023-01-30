@@ -39,9 +39,9 @@ const Header = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="#about"><FormattedMessage id="header.about" /></a>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a className="nav-link" href="#projects"><FormattedMessage id="header.projects" /></a>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <a className="nav-link" href="#partners"><FormattedMessage id="header.partners" /></a>
                         </li>
