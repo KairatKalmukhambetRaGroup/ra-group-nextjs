@@ -53,7 +53,7 @@ const Vacancies = ({lang}) => {
                         </div>
                     </div>
                     <div className="more">
-                        <FormattedMessage id="vacancies.notfound" /> <a href="mailto:hr@ragroup.org">hr@ragroup.org</a> <FormattedMessage id="vacancies.notfound.more" />
+                        <FormattedMessage id="vacancies.notfound" /> <a href="mailto:hr@ragroup.org">info@ragroup.org</a> <FormattedMessage id="vacancies.notfound.more" />
                     </div>
                 </div>
             </div>

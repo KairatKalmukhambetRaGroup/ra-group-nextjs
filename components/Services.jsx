@@ -22,12 +22,12 @@ const cards = [
         title: {ru: 'Веб платформы', kz: 'Веб платформалар', en: 'Web platforms'},
         text: {ru: 'программное обеспечение для веб-сайтов', kz: 'веб-сайт бағдарламалық құралы', en: 'software developed for websites'}
     },
-    {
-        img: CRMImg,
-        imgHover: CRMImgHover,
-        title: {ru: 'CRM системы', kz: 'CRM жүйелері', en: 'CRM systems'},
-        text: {ru: 'автоматизация и обслуживание бизнес-процессов', kz: 'бизнес-процестерді автоматтандыру және қызмет көрсету', en: 'automation and maintenance of business processes'}
-    },
+    // {
+    //     img: CRMImg,
+    //     imgHover: CRMImgHover,
+    //     title: {ru: 'CRM системы', kz: 'CRM жүйелері', en: 'CRM systems'},
+    //     text: {ru: 'автоматизация и обслуживание бизнес-процессов', kz: 'бизнес-процестерді автоматтандыру және қызмет көрсету', en: 'automation and maintenance of business processes'}
+    // },
 ];
 
 
