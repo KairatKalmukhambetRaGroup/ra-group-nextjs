@@ -40,6 +40,25 @@
                         text-decoration:underline;
                     }
                 }
+                .icons{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 16px;
+                    .icon{
+                        width: 24px;
+                        height: 24px;
+                        i{
+                            width: 24px;
+                            height: 24px;
+                        }
+                        &.whatsapp i{
+                            content: url('../utilities/icons/whatsapp.svg');
+                        }
+                        &.telegram i{
+                            content: url('../utilities/icons/telegram.svg');
+                        }
+                    }
+                }
             }
         }
     }
