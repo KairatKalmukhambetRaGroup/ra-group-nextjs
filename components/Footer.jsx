@@ -30,6 +30,7 @@ const Footer = ({lang}) =>{
                         </div>
                         <div className="col">
                             <a href="mailto:info@ragroup.org">info@ragroup.org</a>
+                            <a href="tel:+77000882227">+7 700 088 2227</a>
                             <div><FormattedMessage id="footer.location" /></div>
                         </div>
                     </div>
