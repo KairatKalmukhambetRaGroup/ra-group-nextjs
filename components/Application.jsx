@@ -1,59 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import axios from 'axios';
 
-import MobileIcon from '../utilities/icons/iphone-icon.svg';
-import LaptopIcon from '../utilities/icons/laptop-icon.svg';
-import CRMIcon from '../utilities/icons/crm-icon.svg';
-import MoreVerticalIcon from '../utilities/icons/more-vertical-icon.svg';
-import Image from "next/image";
 import { useRouter } from "next/router";
 
-const initialState = {format: null, os: [], firstname: '', lastname: '', companyName: '', email: ''};
-const initErrState = {format: '', os: '', firstname: '', lastname: '', companyName: '', email: ''}
-
-const osArr = [
-    {
-        value: 'mobile',
-        text: {ru: 'Мобильное приложение', kz: 'Мобильді қолданба', en: 'Mobile app'},
-        img: MobileIcon
-    },
-    {
-        value: 'web',
-        text: {ru: 'Веб платформа', kz: 'Веб платформа', en: 'Web platform'},
-        img: LaptopIcon
-    },
-    {
-        value: 'crm',
-        text: {ru: 'CRM система', kz: 'CRM жүйесі', en: 'CRM system'},
-        img: CRMIcon
-    },
-    {
-        value: 'other',
-        text: {ru: 'Другое', kz: 'Басқа', en: 'Other'},
-        img: MoreVerticalIcon
-    },
-];
+const initialState = {devtype: null, name: '', companyName: '', email: '', phone: ''};
+const initErrState = {devtype: '', name: '', companyName: '', email: '', phone: ''}
 
 const dictionary = {
     title: {ru: 'Оставить заявку',kz: 'Өтінішті жіберіңіз',en: 'Leave an application'},
     step: {ru: 'Шаг', kz: 'Қадам', en: 'Step'},
-    groupLabels: [
-        {ru: '', kz: '', en: ''},
-        {ru: 'Выберите формат', kz: 'Форматты таңдаңыз', en: 'Choose format'},
-        {ru: 'Выберите ПО (можете выбрать несколько)', kz: 'Бағдарламалық құралды таңдаңыз (біреуден көп таңдауға болады)', en: 'Select software (you can choose more than one)'},
-        {ru: 'Заполните анкету', kz: 'Форманы толтырыңыз', en: 'Fill in the form'}
-    ],
     nextBtn: {ru: 'Продолжить', kz: 'Жалғастыру', en: 'Proceed'},
     sendBtn: {ru: 'Отправить', kz: 'Жіберу', en: 'Send'},
-    outsourceTitle: {ru: 'Аутсорсинг', kz: 'Аутсорсинг', en: 'Outsourcing'},
-    outsourceText: {ru: 'Заказная разработка', kz: 'Арнайы әзірлеу', en: 'Custom development'},
-    productionTitle: {ru: 'Продуктовая разработка', kz: 'Өнімді әзірлеу', en: 'Product development'},
-    productionText: {ru: 'Cоздание и вывод на рынок продукта', kz: 'Нарыққа тауарды жасау және шығару', en: 'Creation and launch of the product'},
-    firstnameLabel: {ru: 'Имя', kz: 'Аты', en: 'First name'},
-    lastnameLabel: {ru: 'Фамилию', kz: 'Тегі', en: 'Last name'},
+
+    devtypeTitle: {ru: 'Тип разработки', kz: 'Аутсорсинг', en: 'Outsourcing'},
+    devtypeText: {ru: 'Выберите тип разработки который вам нужен', kz: 'Аутсорсинг', en: 'Outsourcing'},
+
+    infoTitle: {ru: 'Ваши контактные данные', kz: 'Аутсорсинг', en: 'Outsourcing'},
+    infoText: {ru: 'Контактные данные для связи с вами', kz: 'Аутсорсинг', en: 'Outsourcing'},
+
+    developmentTitle: {ru: 'Разработка', kz: 'Аутсорсинг', en: 'Outsourcing'},
+    developmentText: {ru: 'У вас уже есть готовый дизайн', kz: 'Арнайы әзірлеу', en: 'Custom development'},
+
+    designTitle: {ru: 'Дизайн', kz: 'Аутсорсинг', en: 'Outsourcing'},
+    designText: {ru: 'Нужен только дизайн', kz: 'Арнайы әзірлеу', en: 'Custom development'},
+
+    fullDevTitle: {ru: 'Разработка + Дизайн', kz: 'Аутсорсинг', en: 'Outsourcing'},
+    fullDevText: {ru: '', kz: 'Арнайы әзірлеу', en: 'Custom development'},
+
+    nameLabel: {ru: 'Имя Фамилия *', kz: 'Аты-жөні *', en: 'Fullname *'},
     companyNameLabel: {ru: 'Название компании', kz: 'Компанияның Аты', en: 'Company name'},
-    emailLabel: {ru: 'Эл. адрес', kz: 'Электрондық пошта', en: 'Email'},
+    emailLabel: {ru: 'Эл. адрес *', kz: 'Электрондық пошта *', en: 'Email *'},
+    phoneLabel: {ru: 'Номер телефона *', kz: 'Телефон нөмері *', en: 'Phone number *'},
+    
+    emptyRadioError: {ru: 'Не выбран тип разработки', kz: '', el: ''},
+    emptyFieldError: {ru: 'Заполните обязательное поле', kz: '', el: ''},
+    emailError: {ru: 'Некорректный e-mail', kz: '', el: ''},
+   
     successTitle: {ru: 'Ваша заявка успешно отправлена!', kz: 'Өтінішіңіз сәтті жіберілді!', en: 'Your application has been successfully sent!'},
     successText: {ru: 'Мы свяжемся с вами в ближайшее время', kz: 'Біз сізге жақын арада хабарласамыз', en: 'We will contact you as soon as possible'},
     successBtn: {ru: 'Оставить еще заявку', kz: 'Басқа өтініш қалдыру', en: 'Leave another application'},
@@ -66,9 +49,9 @@ const dictionary = {
 const Application = () => {
     const {locale} = useRouter();
 
+    const [isSend, setIsSend] = useState(false);
+
     const [formData, setFormData] = useState(initialState);
-    const [currentStep, setCurrentStep] = useState(1);
-    const [readyToSend, setReadyToSend] = useState(false);
 
     const [errors, setErrors] = useState(initErrState);
     const [submitionResult, setSubmitionResult] = useState('');
@@ -77,20 +60,8 @@ const Application = () => {
         // e.preventDefault();
         const name = e.currentTarget.name;
         let value = e.currentTarget.value;
-        switch (name) {
-            case 'os':
-                let newOS = formData.os;
-                if(newOS.includes(value))
-                    newOS = newOS.filter(el => el !== value);
-                else    
-                    newOS.push(value);
-                setFormData({...formData, os: newOS});
-
-                break;
-            default:
-                setFormData({...formData, [name]: value});
-                break;
-        }
+        setFormData({...formData, [name]: value});
+        setErrors({...errors, [name]: ''});
         let cnt = 0;
         for (const key in formData) {
             if (Object.hasOwnProperty.call(formData, key)) {
@@ -99,23 +70,42 @@ const Application = () => {
                     cnt++;
             }
         }
-        if(cnt === 6)
-            setReadyToSend(true);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let readyToSubmit = true;
-        if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)){
-            setErrors({...errors, email: 'Некорректный e-mail'});
-            readyToSubmit = false;
+        let errs = initErrState;
+        let errCount = 0;
+        if(!formData.devtype){
+            errs.devtype = dictionary.emptyRadioError[locale];
+            setErrors({...errors, devtype: dictionary.emptyRadioError[locale]});
+            errCount++;
+        }
+        if(!formData.name){
+            errs.name = dictionary.emptyFieldError[locale];
+            setErrors({...errors, name: dictionary.emptyFieldError[locale]});
+            errCount++;
+        }
+        if(!formData.email){
+            errs.email = dictionary.emptyFieldError[locale];
+            setErrors({...errors, email: dictionary.emptyFieldError[locale]});
+            errCount++;
         }else{
-            setErrors({...errors, email: ''});
+            if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)){
+                errs.email = dictionary.emailError[locale];
+                setErrors({...errors, email: dictionary.emailError[locale]});
+                errCount++;
+            }
+        }
+        if(!formData.phone){
+            errs.phone = dictionary.emptyFieldError[locale];
+            setErrors({...errors, phone: dictionary.emptyFieldError[locale]});
+            errCount++;
         }
         // submit
-        if(readyToSubmit){
+        if(errCount === 0){
             setSubmitionResult(null);
-            setCurrentStep(4);
+            setIsSend(true);
             try {
                 // const data = await API.post('/', {...formData, locale});
                 const data = await axios.post('/api/applications', {...formData, lang: locale}, {validateStatus: function (status) { return true }, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"}});
@@ -126,6 +116,8 @@ const Application = () => {
             } catch (error) {
                 setSubmitionResult('fail');
             }
+        }else{
+            // setErrors(errs);
         }
     }
 
@@ -134,7 +126,7 @@ const Application = () => {
         setFormData(initialState);
         setErrors(initErrState);
         setReadyToSend(false);
-        setCurrentStep(1);
+        setIsSend(false);
     }
 
     return (
@@ -142,100 +134,102 @@ const Application = () => {
             <div className="container">
                 <div className="text">
                     <div className="bold-40-48">{dictionary.title[locale]}</div>
-                    <div id="progress-bar">
-                        <div className={`progress ${currentStep<3 ? `progress-${currentStep}` : ''}`}></div>
-                    </div>
-                    {currentStep<4 && (
-                        <div className="text">
-                            <div className="semibold-24-32">{dictionary.step[locale]} {currentStep}/3</div>
-                            <div className="regular-16-24">{dictionary.groupLabels[currentStep][locale]}</div>
-                        </div>
-                    )}
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div className={`form-group ${currentStep===1 ? 'active' : ''}`}>
-                        <div className="radio-row">
-                            <label className="col">
-                                <input type="radio" name="format" value="outsource" checked={formData.format==='outsource'} onChange={handleChange}/>
-                                <div className="radio">
-                                    <div className="checkmark">
-                                        <div className="radio-button">
-                                            <div className="circle"></div>
-                                        </div>
-                                    </div>
-                                    <div className="text">
-                                        <div className="semibold-24-32">{dictionary.outsourceTitle[locale]}</div>
-                                        <div className="regular-16-24">{dictionary.outsourceText[locale]}</div>
-                                    </div>
-                                </div>
-                            </label>
-
-                            <label className="col">
-                                <input type="radio" name="format" value="production" checked={formData.format==='production'} onChange={handleChange}/>
-                                <div className="radio">
-                                    <div className="checkmark">
-                                        <div className="radio-button">
-                                            <div className="circle"></div>
-                                        </div>
-                                    </div>
-                                    <div className="text">
-                                        <div className="semibold-24-32">{dictionary.productionTitle[locale]}</div>
-                                        <div className="regular-16-24">{dictionary.productionText[locale]}</div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <div className="btns">
-                            <button type="button" className="btn" disabled={!formData.format} onClick={(e)=>{e.preventDefault(); setCurrentStep(2)}}>{dictionary.nextBtn[locale]}</button>
-                        </div>
-                    </div>
-                    <div className={`form-group ${currentStep===2 ? 'active' : ''}`}>
-                        <div className="os-row">
-                            {osArr && osArr.map((os, key)=>(
-                                <label className="col" key={key}>
-                                    <input type="checkbox" name="os" value={os.value} checked={formData.os && formData.os.includes(os.value)} onChange={handleChange}/>
-                                    <div className="os">
-                                        <div className="os-body">
-                                            <div className="os-image">
-                                                <div className="img">
-                                                   <Image src={os.img}/>
-                                                </div>
+                    <div className={`form ${isSend ? '' : 'active'}`}>
+                        <div className="form-group">
+                            <div className="text">
+                                <div className="semibold-24-32">{dictionary.devtypeTitle[locale]}</div>
+                                <div className="regular-16-24">{dictionary.devtypeText[locale]}</div>
+                            </div>
+                            <div className="radio-row">
+                                <label className="col">
+                                    <input type="radio" name="devtype" value="dev" checked={formData.devtype==='dev'} onChange={handleChange}/>
+                                    <div className="radio">
+                                        <div className="checkmark">
+                                            <div className="radio-button">
+                                                <div className="circle"></div>
                                             </div>
-                                            <div className="semibold-16-24">{os.text[locale]}</div>
+                                        </div>
+                                        <div className="text">
+                                            <div className="semibold-24-32">{dictionary.developmentTitle[locale]}</div>
+                                            <div className="regular-16-24">{dictionary.developmentText[locale]}</div>
                                         </div>
                                     </div>
                                 </label>
-                            ))}
+
+                                <label className="col">
+                                    <input type="radio" name="devtype" value="design" checked={formData.devtype==='design'} onChange={handleChange}/>
+                                    <div className="radio">
+                                        <div className="checkmark">
+                                            <div className="radio-button">
+                                                <div className="circle"></div>
+                                            </div>
+                                        </div>
+                                        <div className="text">
+                                            <div className="semibold-24-32">{dictionary.designTitle[locale]}</div>
+                                            <div className="regular-16-24">{dictionary.designText[locale]}</div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label className="col">
+                                    <input type="radio" name="devtype" value="full" checked={formData.devtype==='full'} onChange={handleChange}/>
+                                    <div className="radio">
+                                        <div className="checkmark">
+                                            <div className="radio-button">
+                                                <div className="circle"></div>
+                                            </div>
+                                        </div>
+                                        <div className="text">
+                                            <div className="semibold-24-32">{dictionary.fullDevTitle[locale]}</div>
+                                            <div className="regular-16-24">{dictionary.fullDevText[locale]}</div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            {errors.devtype && (
+                                <div className="error">{errors.devtype}</div>
+                            )}
+                        </div>
+                        <div className="form-group">
+                            <div className="text">
+                                <div className="semibold-24-32">{dictionary.infoTitle[locale]}</div>
+                                <div className="regular-16-24">{dictionary.infoText[locale]}</div>
+                            </div>
+                            <div className="input-row">
+                                <div className="col">
+                                    <label className={`${formData.name ? '' : 'placeholder'}`} htmlFor="input_name">{dictionary.nameLabel[locale]}</label>
+                                    <input type="text" name="name" id="input_name" value={formData.name} onChange={handleChange} />
+                                    {errors.name && (
+                                        <div className="error">{errors.name}</div>
+                                    )}
+                                </div>
+                                <div className="col">
+                                    <label className={`${formData.companyName ? '' : 'placeholder'}`} htmlFor="input_company">{dictionary.companyNameLabel[locale]}</label>
+                                    <input type="text" name="companyName" id="input_company" value={formData.companyName} onChange={handleChange} />
+                                </div>
+                                <div className="col">
+                                    <label className={`${formData.email ? '' : 'placeholder'} ${errors.email ? 'error' : ''}`} htmlFor="input_email">{dictionary.emailLabel[locale]}{!formData.email && ' (example@gmail.com)'}</label>
+                                    <input type="text" name="email" id="input_email" value={formData.email} onChange={handleChange} />
+                                    {errors.email && (
+                                        <div className="error">{errors.email}</div>
+                                    )}
+                                </div>
+                                <div className="col">
+                                    <label className={`${formData.phone ? '' : 'placeholder'} ${errors.phone ? 'error' : ''}`} htmlFor="input_phone">{dictionary.phoneLabel[locale]}</label>
+                                    <input type="text" name="phone" id="input_phone" value={formData.phone} onChange={handleChange} />
+                                    {errors.phone && (
+                                        <div className="error">{errors.phone}</div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                         <div className="btns">
-                            <button type="button" className="btn" disabled={formData.os.length===0} onClick={(e)=>{e.preventDefault(); setCurrentStep(3)}}>{dictionary.nextBtn[locale]}</button>
+                            <button type="submit" className="btn">{dictionary.sendBtn[locale]}</button>
                         </div>
                     </div>
-                    <div className={`form-group ${currentStep===3 ? 'active' : ''}`}>
-                        <div className="input-row">
-                            <div className="col">
-                                <label className={`${formData.firstname ? '' : 'placeholder'}`} htmlFor="input_firstname">{dictionary.firstnameLabel[locale]}</label>
-                                <input type="text" name="firstname" id="input_firstname" value={formData.firstname} onChange={handleChange} />
-                            </div>
-                            <div className="col">
-                                <label className={`${formData.lastname ? '' : 'placeholder'}`} htmlFor="input_lastname">{dictionary.lastnameLabel[locale]}</label>
-                                <input type="text" name="lastname" id="input_lastname" value={formData.lastname} onChange={handleChange} />
-                            </div>
-                            <div className="col">
-                                <label className={`${formData.companyName ? '' : 'placeholder'}`} htmlFor="input_company">{dictionary.companyNameLabel[locale]}</label>
-                                <input type="text" name="companyName" id="input_company" value={formData.companyName} onChange={handleChange} />
-                            </div>
-                            <div className="col">
-                                <label className={`${formData.email ? '' : 'placeholder'} ${errors.email ? 'error' : ''}`} htmlFor="input_email">{dictionary.emailLabel[locale]}{!formData.email && ' (example@gmail.com)'}</label>
-                                <input type="text" name="email" id="input_email" value={formData.email} onChange={handleChange} />
-                                <div className="error">{errors.email}</div>
-                            </div>
-                        </div>
-                        <div className="btns">
-                            <button type="submit" className="btn" disabled={!readyToSend}>{dictionary.sendBtn[locale]}</button>
-                        </div>
-                    </div>
-                    <div className={`form-group ${currentStep===4 ? 'active' : ''}`}>
+                    <div className={`response ${isSend ? 'active' : ''}`}>
                         {submitionResult ? (
                             <>
                                 <div className="final-step">

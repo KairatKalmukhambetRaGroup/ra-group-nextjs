@@ -179,8 +179,8 @@ export default function Admin() {
                                 <th><FormattedMessage id="admin.table.th.name" /></th>
                                 <th><FormattedMessage id="admin.table.th.company" /></th>
                                 <th><FormattedMessage id="admin.table.th.email" /></th>
-                                <th><FormattedMessage id="admin.table.th.format" /></th>
-                                <th><FormattedMessage id="admin.table.th.os" /></th>
+                                <th><FormattedMessage id="admin.table.th.phone" /></th>
+                                <th><FormattedMessage id="admin.table.th.devtype" /></th>
                                 <th><FormattedMessage id="admin.table.th.language" /></th>
                                 <th><FormattedMessage id="admin.table.th.date" /></th>
                             </tr>
@@ -189,22 +189,33 @@ export default function Admin() {
                             {applications && applications.map((application, key) => (
                                 <tr key={key}>
                                     <td className="number">{key+1}</td>
-                                    <td>{application.firstname} {application.lastname}</td>
-                                    <td>{application.companyName}</td>
+                                    <td>{application.name ? application.name : `${application?.firstname} ${application?.lastname$}` }</td>
+                                    <td>{application?.companyName}</td>
                                     <td>
-                                        <a href={`mailto:${application.email}`}>
-                                            {application.email}
+                                        <a href={`mailto:${application?.email}`}>
+                                            {application?.email}
                                         </a>
                                     </td>
-                                    
-                                    <td><FormattedMessage id={`admin.table.data.format.${application.format}`} /></td>
                                     <td>
-                                        <div className="os-container">
-                                            {application.os && application.os.length>0 && application.os.map((oss, j)=> (
-                                                <div key={j} className="os"><FormattedMessage id={`admin.table.data.os.${oss}`} /></div>
-                                            ))}
-                                        </div>
+                                        <a href={`tel:${application?.phone}`}>
+                                            {application?.phone}
+                                        </a>
                                     </td>
+                                    <td>
+                                    {application.devtype ? (
+                                            <FormattedMessage id={`admin.table.data.devtype.${application.devtype}`} />
+                                    ) : (
+                                        <>
+                                            <FormattedMessage id={`admin.table.data.format.${application.format}`} />
+                                            <div className="os-container">
+                                                {application.os && application.os.length>0 && application.os.map((oss, j)=> (
+                                                    <div key={j} className="os"><FormattedMessage id={`admin.table.data.os.${oss}`} /></div>
+                                                ))}
+                                            </div>
+                                        </>
+                                    )}
+                                    </td>
+
                                     <td>{language[application.lang]}</td>
                                     <td>{dateFormat(application.createdAt)}</td>
                                 </tr>

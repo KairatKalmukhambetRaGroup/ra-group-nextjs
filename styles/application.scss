@@ -5,16 +5,7 @@
     padding: 96px 0;
     background: #F5F5F5;
     color: v.$black;    
-    .text{
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        .text{
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-    }
+    
     #progress-bar{
         box-sizing: border-box;
         width: 100%;
@@ -37,31 +28,46 @@
         }
     }
     form{
-        padding-top: 48px;
-        .form-group{
-            display: none;
-            &.active{
-                display: block;
+        .error{
+            color: #DC2626;
+        }
+        .btns{
+            display: block;
+            .btn{
+                box-sizing: border-box;
+                width: 100%;
+                padding: 12px 32px;
+                background: v.$purple;
+                color: v.$white;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 24px;
+                border-radius: 7px;
+                &:disabled{
+                    background: v.$white;
+                    color: v.$black;
+                    font-weight: 400;
+                }
             }
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .form-group, .response{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
 
-            .btns{
-                margin-top: 48px;
-                display: block;
-                .btn{
-                    box-sizing: border-box;
-                    width: 100%;
-                    padding: 12px 32px;
-                    background: v.$purple;
-                    color: v.$white;
-                    font-weight: 600;
-                    font-size: 16px;
-                    line-height: 24px;
-                    border-radius: 7px;
-                    &:disabled{
-                        background: v.$white;
-                        color: v.$black;
-                        font-weight: 400;
-                    }
+            &>.text{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .text{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
                 }
             }
 
@@ -71,7 +77,8 @@
                 gap: 32px;
                 .col{
                     cursor: pointer;
-                    width: 100%;
+                    // width: 100%;
+                    flex-grow: 1;
                     input{
                         display: none;
                         // opacity: 0;
@@ -126,50 +133,6 @@
                             left: 50%;
                             transform: translate(-50%, -50%);
                         }
-                    }
-                }
-            }
-            .os-row{
-                display: flex;
-                flex-direction: column;
-                gap: 32px;
-                .col{
-                    cursor: pointer;
-                    box-sizing: border-box;
-                    width: 100%;
-                    input{
-                        display: none;
-                        // opacity: 0;
-                    }
-                    .os{
-                        // width: 100%;
-                        height: 100%;
-                        box-sizing: border-box;
-                        padding: 31px;
-                        border-radius: 8px;
-                        background: v.$white;
-                        border: v.$white solid 1px;
-                        .os-body{
-                            height: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 24px;
-                            text-align: center;
-                            justify-content: center;
-                            align-self: center;
-                            .os-image{
-                                display: flex;
-                                justify-content: center;
-                                .img{
-                                    width: 48px;
-                                    height: 48px;
-                                }
-                            }
-                        }
-                    }
-                    input:checked ~ .os{
-                        background: rgba($color: v.$purple, $alpha: .1);
-                        border: v.$purple solid 1px;
                     }
                 }
             }
@@ -259,6 +222,15 @@
                 }
             }
         }
+        .form, .response{
+            display: none;
+            &.active{
+                display: block;
+                &.form{
+                    display: flex;
+                }
+            }
+        }
     }
     @include _lg{
         padding: 128px 0;
@@ -267,17 +239,16 @@
         }
         form{
             padding-top: 56px;
+            .btns{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                .btn{
+                    width: initial;
+                }
+            }
             .form-group{
     
-                .btns{
-                    margin-top: 56px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    .btn{
-                        width: initial;
-                    }
-                }
     
                 .radio-row{
                     display: flex;
@@ -285,14 +256,6 @@
                     gap: 40px;
                     .col{
                         width: calc(50% - 20px);
-                    }
-                }
-                .os-row{
-                    display: flex;
-                    flex-direction: row;
-                    gap: 40px;
-                    .col{
-                        width: calc((100% - 120px)/4);
                     }
                 }
                 .input-row{
