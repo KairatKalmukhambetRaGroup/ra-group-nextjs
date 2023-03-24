@@ -19,14 +19,14 @@ const dictionary = {
     infoTitle: {ru: 'Ваши контактные данные', kz: 'Аутсорсинг', en: 'Outsourcing'},
     infoText: {ru: 'Контактные данные для связи с вами', kz: 'Аутсорсинг', en: 'Outsourcing'},
 
-    developmentTitle: {ru: 'Разработка', kz: 'Аутсорсинг', en: 'Outsourcing'},
-    developmentText: {ru: 'У вас уже есть готовый дизайн', kz: 'Арнайы әзірлеу', en: 'Custom development'},
+    developmentTitle: {ru: 'Разработка', kz: 'Әзірлеу', en: 'Development'},
+    developmentText: {ru: 'У вас уже есть готовый дизайн', kz: 'Сізде дайын дизайн бар.', en: 'You already have a design'},
 
-    designTitle: {ru: 'Дизайн', kz: 'Аутсорсинг', en: 'Outsourcing'},
-    designText: {ru: 'Нужен только дизайн', kz: 'Арнайы әзірлеу', en: 'Custom development'},
+    designTitle: {ru: 'Дизайн', kz: 'Дизайн', en: 'Design'},
+    designText: {ru: 'Нужен только дизайн', kz: 'Сізге тек дизайн қажет.', en: 'All you need is a design.'},
 
-    fullDevTitle: {ru: 'Разработка + Дизайн', kz: 'Аутсорсинг', en: 'Outsourcing'},
-    fullDevText: {ru: '', kz: 'Арнайы әзірлеу', en: 'Custom development'},
+    fullDevTitle: {ru: 'Разработка + Дизайн', kz: 'Әзірлеу + Дизайн', en: 'Development + Design'},
+    fullDevText: {ru: '', kz: '', en: ''},
 
     nameLabel: {ru: 'Имя Фамилия *', kz: 'Аты-жөні *', en: 'Fullname *'},
     companyNameLabel: {ru: 'Название компании', kz: 'Компанияның Аты', en: 'Company name'},
