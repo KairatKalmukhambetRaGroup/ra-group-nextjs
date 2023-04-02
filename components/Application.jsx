@@ -95,7 +95,6 @@ const Application = () => {
         e.preventDefault();
         setFormData(initialState);
         setErrors(initErrState);
-        setReadyToSend(false);
         setIsSend(false);
     }
 
