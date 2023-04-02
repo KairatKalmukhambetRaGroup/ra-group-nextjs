@@ -171,11 +171,11 @@ const Application = () => {
                                         )}
                                     </div>
                                     <div className="col">
-                                        <label className={`${formData.companyName ? '' : 'placeholder'}`} htmlFor="input_company"><FormattedMessage id="application.contacts.company" /></label>
+                                        <label className={`${formData.companyName ? '' : 'placeholder'}`} htmlFor="input_company"><FormattedMessage id="application.contacts.company"/></label>
                                         <input type="text" name="companyName" id="input_company" className={formData.companyName ? 'filled' : ''} value={formData.companyName} onChange={handleChange} />
                                     </div>
                                     <div className="col">
-                                        <label className={`${formData.email ? '' : 'placeholder'} ${errors.email ? 'error' : ''}`} htmlFor="input_email"><FormattedMessage id="application.contacts.email" />{!formData.email && ' (example@gmail.com)'}</label>
+                                        <label className={`${formData.email ? '' : 'placeholder'} ${errors.email ? 'error' : ''}`} htmlFor="input_email"><FormattedMessage id="application.contacts.email" /></label>
                                         <input type="text" name="email" id="input_email" className={formData.email ? 'filled' : ''} value={formData.email} onChange={handleChange} />
                                         {errors.email && (
                                             <div className="error"><FormattedMessage id={`application.error.${errors.email}`} /></div>                                      
