@@ -39,12 +39,12 @@ const Header = () => {
                         <li className="nav-item">
                             <a className="nav-link" href="#about"><FormattedMessage id="header.about" /></a>
                         </li>
-                        {/* <li className="nav-item">
-                            <a className="nav-link" href="#projects"><FormattedMessage id="header.projects" /></a>
-                        </li> */}
                         <li className="nav-item">
-                            <a className="nav-link" href="#partners"><FormattedMessage id="header.partners" /></a>
+                            <a className="nav-link" href="#projects"><FormattedMessage id="header.projects" /></a>
                         </li>
+                        {/* <li className="nav-item">
+                            <a className="nav-link" href="#partners"><FormattedMessage id="header.partners" /></a>
+                        </li> */}
                     </ul>
                     <div className="btns">
                         <a className="btn btn-outline" href="#application"><FormattedMessage id="header.application.btn" /></a>

@@ -37,8 +37,8 @@ const Services = () => {
         <div id="services" className="block">
             <div className="container">
                 <div className="text-box">
-                    <div className="semibold-28-32"><FormattedMessage id="services.title" /></div>
-                    <div className="regular-16-24"><FormattedMessage id="services.subtitle" /></div>
+                    <div className="bold-40-48 text-black-8">// <FormattedMessage id="services.title" /></div>
+                    <div className="regular-24-32 text-black-8"><FormattedMessage id="services.subtitle" /></div>
                 </div>
                 <div className="cards">
                     {cards && cards.map((card, key)=>(
@@ -46,16 +46,11 @@ const Services = () => {
                             <div className="card">
                                 <div className="card-body">
                                     <div className="card-img">
-                                        <div className="img">
-                                            <Image src={card.img} />
-                                        </div>
-                                        <div className="img hover">
-                                            <Image className="hover" src={card.imgHover}/>
-                                        </div>
+                                        <Image className="hover" src={card.imgHover}/>
                                     </div>
                                     <div className="text">
-                                        <div className="card-title">{card.title[locale]}</div>
-                                        <div className="card-text">{card.text[locale]}</div>
+                                        <div className="text-black bold-24-32 text-center">{card.title[locale]}</div>
+                                        <div className="text-black regular-24-32 text-center">{card.text[locale]}</div>
                                     </div>
                                 </div>
                             </div>

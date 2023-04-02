@@ -26,3 +26,13 @@
         width: calc(50% - 16px);
     }
 }
+.flex{
+    display: flex;
+}
+.flex-col{
+    flex-direction: column;
+}
+
+.mb-56{
+    margin-bottom: 56px;
+}

@@ -1,3 +1,4 @@
+@use './variables' as v;
 @import './adaptive';
 .regular-16-24{
     margin: 0;
@@ -44,22 +45,22 @@
     font-size: 32px;
     line-height: 40px;
 }
-.bold-40-48{
-    margin: 0;
-    padding: 0;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 48px;
-}
-.bold-40-48-lg{
-    @include _lg{
-        margin: 0;
-        padding: 0;
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 48px;
-    }
-}
+// .bold-40-48{
+//     margin: 0;
+//     padding: 0;
+//     font-weight: 700;
+//     font-size: 40px;
+//     line-height: 48px;
+// }
+// .bold-40-48-lg{
+//     @include _lg{
+//         margin: 0;
+//         padding: 0;
+//         font-weight: 700;
+//         font-size: 40px;
+//         line-height: 48px;
+//     }
+// }
 
 .bold-56-72{
     margin: 0;
@@ -81,3 +82,85 @@
 .text-center{
     text-align: center;
 }
+.text-right{
+    text-align: right;
+}
+
+.text-purple{
+    color: v.$purple;
+}
+.text-black{
+    color: v.$black;
+}
+.text-black-8{
+    color: rgba($color: v.$black, $alpha: .8);
+}
+.text-white{
+    color: #ffffff;
+}
+.text-white-8{
+    color: rgba($color: #ffffff, $alpha: .8);
+}
+// new fonts
+
+.regular-20-28{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;    
+}
+.regular-24-28{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;    
+}
+.regular-24-32{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.bold-20-20{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+}
+.bold-20-24{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+.bold-24-32{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+.bold-28-28{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 28px;    
+}
+.bold-40-48{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+}
+.bold-64-64{
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 64px;
+}
+.bold-40-44-lg{
+    @include _lg{
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 44px;
+    }
+}
+.bold-64-64-lg{
+    @include _lg{
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 64px;
+    }
+}
+

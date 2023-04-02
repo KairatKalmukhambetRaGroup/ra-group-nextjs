@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const applicationSchema = mongoose.Schema({
     name: {type: String, requird: true},
     firstname: {type: String, requird: true},
+    platform: [String],
     lastname: {type: String, requird: true},
     email: {type: String, requird: true},
     phone: {type: String, requird: true},

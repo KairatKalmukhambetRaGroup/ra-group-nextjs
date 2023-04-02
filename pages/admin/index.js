@@ -180,6 +180,7 @@ export default function Admin() {
                                 <th><FormattedMessage id="admin.table.th.company" /></th>
                                 <th><FormattedMessage id="admin.table.th.email" /></th>
                                 <th><FormattedMessage id="admin.table.th.phone" /></th>
+                                <th><FormattedMessage id="admin.table.th.platform" /></th>
                                 <th><FormattedMessage id="admin.table.th.devtype" /></th>
                                 <th><FormattedMessage id="admin.table.th.language" /></th>
                                 <th><FormattedMessage id="admin.table.th.date" /></th>
@@ -202,17 +203,23 @@ export default function Admin() {
                                         </a>
                                     </td>
                                     <td>
-                                    {application.devtype ? (
-                                            <FormattedMessage id={`admin.table.data.devtype.${application.devtype}`} />
-                                    ) : (
-                                        <>
-                                            <FormattedMessage id={`admin.table.data.format.${application.format}`} />
-                                            <div className="os-container">
-                                                {application.os && application.os.length>0 && application.os.map((oss, j)=> (
+                                        <div className="os-container">
+                                            {application.platform ? (
+                                                application.platform && application.platform.length>0 && application.platform.map((oss, j)=> (
                                                     <div key={j} className="os"><FormattedMessage id={`admin.table.data.os.${oss}`} /></div>
-                                                ))}
-                                            </div>
-                                        </>
+                                                ))
+                                            ) : (
+                                                application.os && application.os.length>0 && application.os.map((oss, j)=> (
+                                                    <div key={j} className="os"><FormattedMessage id={`admin.table.data.os.${oss}`} /></div>
+                                                ))
+                                            )}
+                                        </div>
+                                    </td>
+                                    <td>
+                                    {application.devtype ? (
+                                        <FormattedMessage id={`admin.table.data.devtype.${application.devtype}`} />
+                                    ) : (
+                                        <FormattedMessage id={`admin.table.data.format.${application.format}`} />
                                     )}
                                     </td>
 

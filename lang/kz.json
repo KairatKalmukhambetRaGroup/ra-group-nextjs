@@ -31,11 +31,39 @@
 
     "projects.title": "Жобалар",
     "projects.subtitle": "Біздің бүгінгі күнге дейін талдап, іске асырған жобаларымыз.\nБіздің команда әр жобада сапалы өнімдерді енгізу үшін барлық қажетті, мүмкін және шығармашылық жолдар мен көздерді пайдаланады.",
+    "projects.slide.work": "Біздің жұмысымыз:",
+    "projects.slide.go": "Веб-сайтқа өту",
+    
 
     "partners.title": "Серіктестер",
     "partners.subtitle": "Біз жобаларды жүзеге асырған серіктестеріміздің тізімі",
 
-    "application.title": "",
+    "application.title": "Өтініш жіберу",
+    "application.platform.label": "Платформаны таңдаңыз (міндетті емес)",
+    "application.platform.mobile": "Мобильді қолданба",
+    "application.platform.web": "Веб-платформа",
+    "application.service.label": "Қызметті таңдау",
+    "application.service.design.title": "Дизайн",
+    "application.service.design.description": "Веб-сайт немесе қолданба дизайны, верстка жоқ",
+    "application.service.layout.title": "Верстка",
+    "application.service.layout.description": "Егер сізде веб-сайт немесе қолданба дизайны дайын болса",
+    "application.service.full.title": "Дизайн және верстка",
+    "application.contacts.label": "Сіздің контактілеріңіз",
+    "application.contacts.name": "Аты Тегі",
+    "application.contacts.company": "Компанияның атауы (міндетті емес)",
+    "application.contacts.phone": "Байланыс нөмірі",
+    "application.contacts.email": "Электрондық пошта",
+    "application.send": "Жіберу",
+
+    "application.error.service": "Қызмет таңдалмаған",
+    "application.error.empty": "Міндетті жолды толтырыңыз",
+    "application.error.email": "Электрондық пошта қате толтырылған",
+
+    "application.success.title": "Өтінішіңіз сәтті жіберілді!",
+    "application.success.text": "Біз сізге жақын арада хабарласамыз",
+    "application.success.button": "Басқа өтініш қалдыру",
+    "application.fail.title": "Бірдеңе дұрыс болмады, қайталап көріңіз",
+    "application.fail.button": "Қайталау",
 
     "vacancies.title": "Бос жұмыс орындары",
     "vacancies.subtitle": "Біз кімді іздейміз?",
@@ -57,6 +85,7 @@
     "admin.table.th.devtype": "Әзірлеу түрі",
     "admin.table.th.format": "Формат",
     "admin.table.th.os": "ОЖ",
+    "admin.table.th.platform": "Платформа",
     "admin.table.th.language": "Тіл",
     "admin.table.th.date": "Күні",
 

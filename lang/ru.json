@@ -31,11 +31,38 @@
 
     "projects.title": "Проекты",
     "projects.subtitle": "Наши проекты, которые мы проанализировали и реализовали на сегодняшний день.\nНаша команда в каждом проекте использует все необходимые, возможные и креативные способы и источники для реализации качественных продуктов.",
+    "projects.slide.work": "Наша работа:",
+    "projects.slide.go": "Перейти на сайт",
 
     "partners.title": "Партнеры",
     "partners.subtitle": "Список наших партнеров, с которыми мы реализовали проекты",
 
-    "application.title": "",
+    "application.title": "Оставить заявку",
+    "application.platform.label": "Выберите платформу (необязательно)",
+    "application.platform.mobile": "Мобильное приложение",
+    "application.platform.web": "Веб платформа",
+    "application.service.label": "Выберите услугу ",
+    "application.service.design.title": "Дизайн",
+    "application.service.design.description": "Дизайн сайта или приложения, без верстки",
+    "application.service.layout.title": "Верстка",
+    "application.service.layout.description": "Если у вас есть готовый дизайн сайта или приложения",
+    "application.service.full.title": "Дизайн и верстка",
+    "application.contacts.label": "Ваши контакты",
+    "application.contacts.name": "Имя Фамилия",
+    "application.contacts.company": "Название компании (необязательно)",
+    "application.contacts.phone": "Контактный номер",
+    "application.contacts.email": "Электронная почта",
+    "application.send": "Отправить",
+
+    "application.error.service": "Не выбрана услуга",
+    "application.error.empty": "Заполните обязательное поле",
+    "application.error.email": "Некорректная электронная почта",
+
+    "application.success.title": "Ваша заявка успешно отправлена!",
+    "application.success.text": "Мы свяжемся с вами в ближайшее время",
+    "application.success.button": "Оставить еще заявку",
+    "application.fail.title": "Что-то пошло не так, попробуйте еще раз",
+    "application.fail.button": "Попробовать еще раз",
 
     "vacancies.title": "Вакансии",
     "vacancies.subtitle": "Кого мы ищем?",
@@ -57,6 +84,7 @@
     "admin.table.th.devtype": "Тип разработки",
     "admin.table.th.format": "Формат",
     "admin.table.th.os": "ПО",
+    "admin.table.th.platform": "Платформа",
     "admin.table.th.language": "Язык",
     "admin.table.th.date": "Дата",
 

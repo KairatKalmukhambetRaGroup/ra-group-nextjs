@@ -31,11 +31,39 @@
 
     "projects.title": "Projects",
     "projects.subtitle": "Our projects that we have analyzed and implemented to date.\nOur team in each project uses all the necessary, possible and creative ways and sources to implement quality products.",
+    "projects.slide.work": "Our work:",
+    "projects.slide.go": "Go to site",
+    
 
     "partners.title": "Partners",
     "partners.subtitle": "List of our partners with whom we have completed projects",
 
-    "application.title": "",
+    "application.title": "Leave an application",
+    "application.platform.label": "Select a platform (optional)",
+    "application.platform.mobile": "Mobile Application",
+    "application.platform.web": "Web Platform",
+    "application.service.label": "Select a service",
+    "application.service.design.title": "Design",
+    "application.service.design.description": "Website or app design, no layout",
+    "application.service.layout.title": "Layout",
+    "application.service.layout.description": "If you have a website or app design ready",
+    "application.service.full.title": "Design and layout",
+    "application.contacts.label": "Your contacts",
+    "application.contacts.name": "Full Name",
+    "application.contacts.company": "Company Name (optional)",
+    "application.contacts.phone": "Contact number",
+    "application.contacts.email": "Email",
+    "application.send": "Send",
+
+    "application.error.service": "No service selected",
+    "application.error.empty": "Fill in a required field",
+    "application.error.email": "Incorrect e-mail",
+
+    "application.success.title": "Your application has been successfully sent!",
+    "application.success.text": "We will contact you as soon as possible",
+    "application.success.button": "Leave another application",
+    "application.fail.title": "Something went wrong, please try again",
+    "application.fail.button": "Try again",
 
     "vacancies.title": "Job vacancies",
     "vacancies.subtitle": "Who are we looking for?",
@@ -57,6 +85,7 @@
     "admin.table.th.devtype": "Dev Type",
     "admin.table.th.format": "Format",
     "admin.table.th.os": "OS",
+    "admin.table.th.platform": "Platform",
     "admin.table.th.language": "Language",
     "admin.table.th.date": "Date",
 
