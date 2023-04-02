@@ -1,4 +1,6 @@
 @use './variables' as v;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 #vcards{
     padding: 0 80px;
     padding-top: 80px;   
@@ -230,6 +232,70 @@
             }
         }
     }
+    .vcard-style{
+        $darkblue: #0B1832;
+        $oceanblue: #1C6BDB;
+        $white: #ffffff;
+        padding: 35px;
+        box-sizing: border-box;
+        font-family: 'Inter';
+        font-style: normal;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top{
+            width: 222px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 12px;
+            .fullname{
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 27px;
+                margin-bottom: 8px;
+            }
+        }
+        .bottom{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .contacts{
+                width: 222px;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 12px;
+                
+                .other{
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    span{
+                        padding: 0;
+                        margin: 0;
+                        display: block;
+                    }
+                }
+            }
+            #style-qr{
+                width: 66px;
+                height: 66px;
+            }
+        }
+        
+        &.dark-h{
+            background: $darkblue;
+            color: $white;
+            width: 444px;
+            height: 290px;
+            .top{
+                color: $oceanblue;
+                .fullname{
+                    color: $white;
+                }
+            }
+        }
+    }
 
     table{
         background: v.$white;
@@ -263,3 +329,4 @@
     }
 
 }
+
