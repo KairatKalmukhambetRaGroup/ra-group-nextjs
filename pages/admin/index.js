@@ -204,7 +204,7 @@ export default function Admin() {
                                     </td>
                                     <td>
                                         <div className="os-container">
-                                            {application.platform ? (
+                                            {(application.platform && application.platform.length>0) ? (
                                                 application.platform && application.platform.length>0 && application.platform.map((oss, j)=> (
                                                     <div key={j} className="os"><FormattedMessage id={`admin.table.data.os.${oss}`} /></div>
                                                 ))
