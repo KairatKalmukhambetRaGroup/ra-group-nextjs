@@ -149,7 +149,7 @@ const Projects = () => {
     return (
         <div id="projects" className="block">
             <div className="container">
-                <div className="mb-56 bold-40-48 text-black-8">// <FormattedMessage id="projects.title" /></div>
+                <div className="mb-56 bold-32-40 bold-40-48-lg text-black-8">// <FormattedMessage id="projects.title" /></div>
                 <div className="carousel-wrapper">
                     <div className="carousel" >
                         <div className="slides" ref={slidesRef}>
@@ -159,6 +159,9 @@ const Projects = () => {
                                         <div className="description">
                                             <Image className="logo" src={slide.logo} />
                                             <div className="regular-16-24">{slide.description[locale]}</div>
+                                        </div>
+                                        <div className={`mobileImg ${slide.imgHasPadding ? 'hasPadding' : ''}`}>
+                                            <Image className="img" src={slide.image} />
                                         </div>
                                         <div className="work">
                                             <div className="bold-20-20">

@@ -1,10 +1,25 @@
 import axios from "axios";
 import { useRouter } from "next/router"
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useState } from "react";
 import QRCode from "qrcode-svg";
 import AdminHeader from "../../../../components/AdminHeader";
 import Pagination from "../../../../components/Pagination";
+import VCardStyle from "../../../../components/VcardStyle";
+
+function downloadBlob(blob, filename) {
+    const objectUrl = URL.createObjectURL(blob);
+  
+    const link = document.createElement("a");
+    link.href = objectUrl;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
+  }
+  
 
 const VCard = () => {
     const router = useRouter();
@@ -38,22 +53,23 @@ const VCard = () => {
             });
             document.getElementById('qr').innerHTML = qrcode.svg();
 
-            var svg = document.getElementById(`qr`);
-            var serializer = new XMLSerializer();
-            var source = serializer.serializeToString(svg);
-            if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
-                source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
-            }
-            if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
-                source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
-            }
 
-            var name = data.lastname ? (data.firstname + " " + data.lastname) : data.firstname; 
+            // var svg = document.getElementById(`qr`);
+            // var serializer = new XMLSerializer();
+            // var source = serializer.serializeToString(svg);
+            // if(!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)){
+            //     source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+            // }
+            // if(!source.match(/^<svg[^>]+"http\:\/\/www\.w3\.org\/1999\/xlink"/)){
+            //     source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+            // }
 
-            source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
-            var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
-            document.getElementById(`download`).href = url;
-            document.getElementById(`download`).download = name;
+            // var name = data.lastname ? (data.firstname + " " + data.lastname) : data.firstname; 
+
+            // source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+            // var url = "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(source);
+            // document.getElementById(`download`).href = url;
+            // document.getElementById(`download`).download = name;
 
         }
     },[data])
@@ -62,6 +78,17 @@ const VCard = () => {
         var options = { year: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hourCycle: 'h24', day: 'numeric' };
         return new Date(string).toLocaleDateString(router.locale,options);
     }
+
+    const qrRef = useRef();
+
+    const downloadQR = useCallback(()=>{
+        if(data){
+            var name = data.lastname ? (data.firstname + " " + data.lastname) : data.firstname; 
+            const svg = qrRef.current.innerHTML;
+            const blob = new Blob([svg], { type: "image/svg+xml" });
+            downloadBlob(blob, `${name}.svg`);
+        }
+    }, [])
 
     return (
         <>
@@ -87,11 +114,14 @@ const VCard = () => {
                                 <div className="info-row">City<span>{data.city}</span></div>
                             </div>
                             <div className="qr">
-                                <div id="qr"></div>
-                                <a id="download" download>
+                                <div id="qr" ref={qrRef}></div>
+                                <a id="download" onClick={downloadQR}>
                                 Download <i></i>
                                 </a>
                             </div>
+                            {data && 
+                                <VCardStyle data={data} />
+                            }
                         </div>
                     
                         <table>

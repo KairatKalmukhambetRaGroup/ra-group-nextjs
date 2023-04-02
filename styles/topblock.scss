@@ -11,7 +11,7 @@ $transition_timing_function: ease;
     .content{
         display: flex;
         flex-direction: column;
-        gap: 64px;
+        gap: 48px;
         .row{
             display: flex;
             flex-direction: column;
@@ -25,23 +25,29 @@ $transition_timing_function: ease;
         #svgs{
             display: flex;
             justify-content: center;
-            #svg2{
+            #svgSmall{
+                width: 100%;
+                aspect-ratio: 328 / 208;
+            }
+            #svg1, #svg2{
                 display: none;
             }
         }
         @include _md{
             #svgs{
                 justify-content: space-between;
-                gap: 64px;
-                #svg1{
+                gap: 24px;
+                #svgSmall{
                     display: none;
                 }
-                #svg2{
+                #svg1, #svg2{
                     display: initial;
                 }
             }
         }
         @include _lg{
+            gap: 64px;
+
             .row{
                 flex-direction: row;
                 gap: 64px;
@@ -53,6 +59,7 @@ $transition_timing_function: ease;
             #svgs{
                 display: flex;
                 justify-content: space-between;
+                gap: 64px;
                 #svg1, #svg2{
                     display: initial;
                 }

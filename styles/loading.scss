@@ -16,6 +16,8 @@
             background: v.$purple;
             border-radius: 50%;
             animation: lds-default 1.2s linear infinite;
+
+
             &:nth-child(1) {
                 animation-delay: 0s;
                 top: 37px;
@@ -77,6 +79,9 @@
                 left: 62px;
             }
         }
+    }
+    &.white .lds-default div{
+        background: #E7E7E7;
     }
 }
 @keyframes lds-default {
