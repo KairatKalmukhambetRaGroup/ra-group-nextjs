@@ -55,7 +55,7 @@ const carousel = [
         btnBackground: "none",
         btnBorder: "1px solid #FFFFFF",
         textColor: "#FFFFFF",
-        link: "https://ragmirsot.com",
+        link: "https://ragroupinvest.com",
         description: {
             ru: "RAG ZAKYAT INVESTMENT занимается инвестициями в коммерческие предприятия",
             en: "",
