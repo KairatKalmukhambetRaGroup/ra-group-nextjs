@@ -5,7 +5,7 @@ import { useState } from "react";
 import QRCode from "qrcode-svg";
 import AdminHeader from "../../../../components/AdminHeader";
 import Pagination from "../../../../components/Pagination";
-import VCardStyle from "../../../../components/VcardStyle";
+// import VCardStyle from "../../../../components/VcardStyle";
 
 function downloadBlob(blob, filename) {
     const objectUrl = URL.createObjectURL(blob);
@@ -119,9 +119,9 @@ const VCard = () => {
                                 Download <i></i>
                                 </a>
                             </div>
-                            {data && 
+                            {/* {data && 
                                 <VCardStyle data={data} />
-                            }
+                            } */}
                         </div>
                     
                         <table>
