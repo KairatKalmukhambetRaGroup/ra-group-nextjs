@@ -93,7 +93,7 @@ export default function Admin() {
     }
 
     function dateFormat(data) {
-        const dateString = new Date(data).toISOString()
+        const dateString = new Date(data).toLocaleString(undefined, {timeZone: 'Asia/Almaty' });
         let date = (dateString.split("T")[0]).split("-");
         let time = ((dateString.split("T")[1]).split(".")[0]).split(":");
 
