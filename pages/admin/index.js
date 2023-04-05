@@ -93,16 +93,19 @@ export default function Admin() {
     }
 
     function dateFormat(data) {
-        const dateString = new Date(data).toLocaleDateString(undefined, {timeZone: 'Asia/Almaty' });
-        let date = (dateString.split("T")[0]).split("-");
-        let time = ((dateString.split("T")[1]).split(".")[0]).split(":");
+        console.log(data)
+        const dateString = new Date(data).toLocaleString(undefined, {timeZone: 'Asia/Almaty' });
+        return dateString
+        // console.log(dateString)
+        // let date = (dateString.split("T")[0]).split("-");
+        // let time = ((dateString.split("T")[1]).split(".")[0]).split(":");
 
-        let year = date[0];
-        let month = date[1];
-        let day = Number(date[2]);
+        // let year = date[0];
+        // let month = date[1];
+        // let day = Number(date[2]);
 
         // return date + " " + time;
-        return `${time[0]}:${time[1]} ${day} ${numMonthToString(month).toLowerCase()} ${year}`;
+        // return `${time[0]}:${time[1]} ${day} ${numMonthToString(month).toLowerCase()} ${year}`;
     }
 
     function printRange() {
