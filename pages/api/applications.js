@@ -1,3 +1,4 @@
+import nodemailer from 'nodemailer'
 import Application from '../../database/models/application';
 import connectMongo from '../../database/connect';
 
@@ -9,7 +10,41 @@ const applicationApi = async (req, res) => {
             
             const application = new Application(data);
             await application.save();
+            console.log(application)
+            const mailOptions = {
+                from: process.env.EMAIL,
+                to: process.env.EMAIL_TO,
+                subject: `RA Group форма - ${application.name}`,
+                html: `
+                    <h2>${application.name}</h2>
+                    ${application.platform.length > 0 && (
+                        `<p>Платформы: 
+                        ${application.platform.map((platform) => `${platform}`)
+                        }</p>`)
+                    }
+                    <p>Услуга: ${application.devtype}</p>
+                    ${application.companyName && `<p>Услуга: ${application.companyName}</p>`}
+                    <p>Почта: ${application.email}</p>
+                    <p>Номер телефона: ${application.phone}</p>  
+                `,
+            };
         
+            let transporter = nodemailer.createTransport({
+                port: 465,
+                host: "smtp.gmail.com",
+                auth: {
+                    user: process.env.EMAIL,
+                    pass: process.env.PASSWORD,
+                },
+                secure: true,
+            });
+            transporter.sendMail(mailOptions, (err, info)=>{
+                if(err)
+                    console.log(err);
+                else
+                    console.log(info)
+            })
+
             return res.json();
         } catch (error) {
             console.log(error);
