@@ -22,7 +22,7 @@ const Footer = ({lang}) =>{
                     </a>
                     <div className="row">
                         <div className="col">
-                            <a href="tel:+770003002132" className="">+7 700 300 2132</a>
+                            <a href="tel:+77003002132" className="">+7 700 300 2132</a>
                             <div className="icons">
                                 <a href="https://wa.me/77003002132" target="_blank" className="icon whatsapp"><i></i></a>
                                 <a href="https://t.me/Bastatonaring" target="_blank" className="icon telegram"><i></i></a>
