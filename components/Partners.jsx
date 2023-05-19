@@ -21,18 +21,18 @@ const cards = [
             en: 'Consulting services in various industries and services.'
         }
     },
-    // {
-    //     img: Irex,
-    //     mainBg: '#F2F2F2',
-    //     bg: '#262729',
-    //     color: '#FFFFFF',
-    //     name: 'IREX',
-    //     text: {
-    //         ru: 'Предложение по передаче технологий для правительства Катар',
-    //         kz: 'Катар Үкіметі үшін технологиялар трансферті туралы ұсыныс',
-    //         en: 'Technology Transfer Proposal for the Government of Qatar'
-    //     }
-    // },
+    {
+        img: Irex,
+        mainBg: '#E7E7E7',
+        bg: '#262729',
+        color: '#FFFFFF',
+        name: 'IREX',
+        text: {
+            ru: 'Предложение по передаче технологий для правительства Катар',
+            kz: 'Катар Үкіметі үшін технологиялар трансферті туралы ұсыныс',
+            en: 'Technology Transfer Proposal for the Government of Qatar'
+        }
+    },
     {
         img: RagZakyatInvestment,
         mainBg: '#0A0A0A',
@@ -46,18 +46,18 @@ const cards = [
             en: 'Investment company'
         }
     },
-    // {
-    //     img: F,
-    //     mainBg: '#E7E7E7',
-    //     bg: '#00A944',
-    //     color: '#FFFFFF',
-    //     name: 'F',
-    //     text: {
-    //         ru: 'Корпоративная платформа',
-    //         kz: 'Кәсіпорын платформасы',
-    //         en: 'Enterprise platform'
-    //     }
-    // },
+    {
+        img: F,
+        mainBg: '#E7E7E7',
+        bg: '#00A944',
+        color: '#FFFFFF',
+        name: 'F',
+        text: {
+            ru: 'Корпоративная платформа',
+            kz: 'Кәсіпорын платформасы',
+            en: 'Enterprise platform'
+        }
+    },
 ];
 
 const dictionary = {
@@ -79,8 +79,8 @@ const Partners = () => {
         <div id="partners" className="block">
             <div className="container">
                 <div className="text">
-                    <div className="semibold-28-32"><FormattedMessage id="partners.title" /></div>
-                    <div className="regular-16-24"><FormattedMessage id="partners.subtitle" /></div>
+                    <div className="bold-32-40 bold-40-48-lg text-black-8"><FormattedMessage id="partners.title" /></div>
+                    <div className="regular-20-28"><FormattedMessage id="partners.subtitle" /></div>
                 </div>
 
                 <div className="cards">

@@ -102,7 +102,7 @@ const Application = () => {
         <div id="application" >
             <div className="container">
                 <div className="content">
-                    <div className="bold-32-40 bold-40-48-lg text-white-8">// <FormattedMessage id="application.title" /></div>
+                    <div className="bold-32-40 bold-40-48-lg text-white-8"><FormattedMessage id="application.title" /></div>
                     <form onSubmit={handleSubmit}>
                         <div className={`form ${isSend ? '' : 'active'}`}>
                             <div className="form-group">

@@ -37,7 +37,7 @@ const Services = () => {
         <div id="services" className="block">
             <div className="container">
                 <div className="text-box">
-                    <div className="bold-32-40 bold-40-48-lg text-black-8">// <FormattedMessage id="services.title" /></div>
+                    <div className="bold-32-40 bold-40-48-lg text-black-8"><FormattedMessage id="services.title" /></div>
                     <div className="regular-24-32 text-black-8"><FormattedMessage id="services.subtitle" /></div>
                 </div>
                 <div className="cards">
@@ -50,7 +50,7 @@ const Services = () => {
                                     </div>
                                     <div className="text">
                                         <div className="text-black bold-24-32 text-center">{card.title[locale]}</div>
-                                        <div className="text-black regular-24-32 text-center">{card.text[locale]}</div>
+                                        <div className="text-black regular-20-28 text-center">{card.text[locale]}</div>
                                     </div>
                                 </div>
                             </div>

@@ -9,10 +9,10 @@ const TopBlock = () =>{
                 <div className="content">
                     <div className="row">
                         <div className="col">
-                            <div className="bold-40-44 bold-64-64-lg text-purple"><FormattedMessage id="top.title" /></div>
+                            <div className="bold-40-44 bold-56-64-lg text-purple"><FormattedMessage id="top.title" /></div>
                         </div>
                         <div className="col">
-                            <div className="regular-24-32 text-black-8 text-right">// <FormattedMessage id="top.subtitle" /></div>
+                            <div className="regular-24-32 text-black-8 text-right"><FormattedMessage id="top.subtitle" /></div>
                         </div>
                     </div>
                     <div id="svgs">

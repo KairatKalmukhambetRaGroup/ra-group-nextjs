@@ -149,7 +149,7 @@ const Projects = () => {
     return (
         <div id="projects" className="block">
             <div className="container">
-                <div className="mb-56 bold-32-40 bold-40-48-lg text-black-8">// <FormattedMessage id="projects.title" /></div>
+                <div className="mb-56 bold-32-40 bold-40-48-lg text-black-8"><FormattedMessage id="projects.title" /></div>
                 <div className="carousel-wrapper">
                     <div className="carousel" >
                         <div className="slides" ref={slidesRef}>

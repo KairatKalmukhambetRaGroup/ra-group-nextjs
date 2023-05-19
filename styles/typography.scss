@@ -94,6 +94,11 @@
     font-size: 32px;
     line-height: 40px;
 }
+.bold-36-44{
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+}
 .bold-40-44{
     font-weight: 700;
     font-size: 40px;
@@ -104,10 +109,22 @@
     font-size: 40px;
     line-height: 48px;
 }
+.bold-56-64{
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 64px;
+}
 .bold-64-64{
     font-weight: 700;
     font-size: 64px;
     line-height: 64px;
+}
+.bold-36-44-lg{
+    @include _lg{
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 44px;
+    }
 }
 .bold-40-44-lg{
     @include _lg{
@@ -121,6 +138,13 @@
         font-weight: 700;
         font-size: 40px;
         line-height: 48px;
+    }
+}
+.bold-56-64-lg{
+    @include _lg{
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 64px;
     }
 }
 .bold-64-64-lg{
