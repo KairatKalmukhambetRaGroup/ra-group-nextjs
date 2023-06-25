@@ -202,7 +202,7 @@ export default function Admin() {
                                         </a>
                                     </td>
                                     <td>
-                                        <a href={`tel:${application?.phone.replace(/ /g, '')}`}>
+                                        <a href={`tel:${application?.phone?.replace(/ /g, '')}`}>
                                             {application?.phone}
                                         </a>
                                     </td>
